@@ -31,16 +31,16 @@ export default function PortfolioPage() {
     if (!confirm("10 voorbeeldprojecten toevoegen?")) return;
     setSaving(true);
     const dummies = [
-      { title: "Kapper Youssef",       category: "Barbershop · Brand + Booking",      result: "Volgeboekt binnen 2 weken na lancering",           color: "from-amber-900 to-amber-700",   liveUrl: "https://google.com", imageUrl: "", tags: ["Kapper", "Booking"],      order: 0,  visible: true },
-      { title: "Nail Studio Rosa",      category: "Nagelsalon · Website + Brand",       result: "40% meer nieuwe klanten in de eerste maand",       color: "from-pink-900 to-pink-700",     liveUrl: "https://google.com", imageUrl: "", tags: ["Beauty", "Branding"],     order: 1,  visible: true },
-      { title: "Amir Coaching",         category: "Life Coach · Full Package",          result: "Professioneel imago dat past bij zijn kwaliteit",   color: "from-blue-900 to-blue-700",     liveUrl: "https://google.com", imageUrl: "", tags: ["Coaching", "SEO"],        order: 2,  visible: true },
-      { title: "Rijschool Driving Pro", category: "Rijschool · Website + SEO",          result: "Eerste pagina Google binnen 3 maanden",             color: "from-emerald-900 to-emerald-700", liveUrl: "https://google.com", imageUrl: "", tags: ["Rijschool", "SEO"],    order: 3,  visible: true },
-      { title: "Bouwbedrijf Nasser",    category: "Aannemer · Website + Portfolio",     result: "3x meer offerteaanvragen per maand",               color: "from-orange-900 to-orange-700", liveUrl: "https://google.com", imageUrl: "", tags: ["Bouw", "Portfolio"],     order: 4,  visible: true },
-      { title: "Fitnesscoach Layla",    category: "Personal Trainer · Full Package",    result: "Online klanten vanuit heel Nederland",              color: "from-violet-900 to-violet-700", liveUrl: "https://google.com", imageUrl: "", tags: ["Fitness", "Booking"],    order: 5,  visible: true },
-      { title: "Restaurant Al Basha",   category: "Horeca · Website + Reservering",     result: "Volledig bezet elke vrijdag en zaterdag",           color: "from-red-900 to-red-700",       liveUrl: "https://google.com", imageUrl: "", tags: ["Horeca", "Reservering"], order: 6,  visible: true },
-      { title: "Schoonheidssalon Vera", category: "Beauty · Branding + Booking",        result: "Wachtlijst van 2 weken na lancering",               color: "from-fuchsia-900 to-fuchsia-700", liveUrl: "https://google.com", imageUrl: "", tags: ["Beauty", "Booking"], order: 7,  visible: true },
-      { title: "Advocaat M. El Idrissi",category: "Juridisch · Website + SEO",          result: "Top 3 Google voor 5 zoekwoorden",                   color: "from-slate-800 to-slate-700",   liveUrl: "https://google.com", imageUrl: "", tags: ["Juridisch", "SEO"],      order: 8,  visible: true },
-      { title: "Autohandel Karimi",     category: "Automotive · Website + Fotografie",  result: "Gemiddeld 12 leads per week via de website",        color: "from-zinc-800 to-zinc-700",     liveUrl: "https://google.com", imageUrl: "", tags: ["Auto", "Leads"],         order: 9,  visible: true },
+      { title: "Kapper Youssef",        description: "", category: "Barbershop · Brand + Booking",      result: "Volgeboekt binnen 2 weken na lancering",          color: "from-amber-900 to-amber-700",     liveUrl: "https://google.com", imageUrl: "", tags: ["Kapper", "Booking"],      order: 0,  visible: true },
+      { title: "Nail Studio Rosa",       description: "", category: "Nagelsalon · Website + Brand",      result: "40% meer nieuwe klanten in de eerste maand",      color: "from-pink-900 to-pink-700",       liveUrl: "https://google.com", imageUrl: "", tags: ["Beauty", "Branding"],     order: 1,  visible: true },
+      { title: "Amir Coaching",          description: "", category: "Life Coach · Full Package",         result: "Professioneel imago dat past bij zijn kwaliteit",  color: "from-blue-900 to-blue-700",       liveUrl: "https://google.com", imageUrl: "", tags: ["Coaching", "SEO"],        order: 2,  visible: true },
+      { title: "Rijschool Driving Pro",  description: "", category: "Rijschool · Website + SEO",         result: "Eerste pagina Google binnen 3 maanden",            color: "from-emerald-900 to-emerald-700", liveUrl: "https://google.com", imageUrl: "", tags: ["Rijschool", "SEO"],       order: 3,  visible: true },
+      { title: "Bouwbedrijf Nasser",     description: "", category: "Aannemer · Website + Portfolio",    result: "3x meer offerteaanvragen per maand",              color: "from-orange-900 to-orange-700",   liveUrl: "https://google.com", imageUrl: "", tags: ["Bouw", "Portfolio"],      order: 4,  visible: true },
+      { title: "Fitnesscoach Layla",     description: "", category: "Personal Trainer · Full Package",   result: "Online klanten vanuit heel Nederland",             color: "from-violet-900 to-violet-700",   liveUrl: "https://google.com", imageUrl: "", tags: ["Fitness", "Booking"],     order: 5,  visible: true },
+      { title: "Restaurant Al Basha",    description: "", category: "Horeca · Website + Reservering",    result: "Volledig bezet elke vrijdag en zaterdag",          color: "from-red-900 to-red-700",         liveUrl: "https://google.com", imageUrl: "", tags: ["Horeca", "Reservering"],  order: 6,  visible: true },
+      { title: "Schoonheidssalon Vera",  description: "", category: "Beauty · Branding + Booking",       result: "Wachtlijst van 2 weken na lancering",              color: "from-fuchsia-900 to-fuchsia-700", liveUrl: "https://google.com", imageUrl: "", tags: ["Beauty", "Booking"],      order: 7,  visible: true },
+      { title: "Advocaat M. El Idrissi", description: "", category: "Juridisch · Website + SEO",         result: "Top 3 Google voor 5 zoekwoorden",                  color: "from-slate-800 to-slate-700",     liveUrl: "https://google.com", imageUrl: "", tags: ["Juridisch", "SEO"],       order: 8,  visible: true },
+      { title: "Autohandel Karimi",      description: "", category: "Automotive · Website + Fotografie", result: "Gemiddeld 12 leads per week via de website",       color: "from-zinc-800 to-zinc-700",       liveUrl: "https://google.com", imageUrl: "", tags: ["Auto", "Leads"],          order: 9,  visible: true },
     ];
     for (const d of dummies) await addPortfolioItem(d);
     await load();
@@ -67,6 +67,7 @@ export default function PortfolioPage() {
     setEditing(item.id!);
     setForm({
       title: item.title, category: item.category || "", result: item.result || "",
+      description: item.description || "",
       color: item.color || COLOR_OPTIONS[0].value, imageUrl: item.imageUrl || "",
       liveUrl: item.liveUrl || "", tags: item.tags, order: item.order, visible: item.visible,
     });

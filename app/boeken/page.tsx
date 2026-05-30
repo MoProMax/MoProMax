@@ -1,5 +1,7 @@
 "use client";
 
+export const dynamic = "force-dynamic";
+
 import { useEffect, useState } from "react";
 import { getAvailability, saveBooking, AvailabilitySlot } from "@/app/lib/firestore";
 

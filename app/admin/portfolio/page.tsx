@@ -13,7 +13,7 @@ const COLOR_OPTIONS = [
 ];
 
 const EMPTY: Omit<PortfolioItem, "id" | "createdAt"> = {
-  title: "", category: "", result: "", color: COLOR_OPTIONS[0].value,
+  title: "", category: "", result: "", description: "", color: COLOR_OPTIONS[0].value,
   imageUrl: "", liveUrl: "", tags: [], order: 0, visible: true,
 };
 

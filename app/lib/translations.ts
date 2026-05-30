@@ -5,7 +5,7 @@ export const translations = {
     nav: {
       services: "Services",
       portfolio: "Our Work",
-      pricing: "Pricing",
+      pricing: "Packages",
       about: "About",
       lang: "NL",
     },
@@ -204,7 +204,7 @@ export const translations = {
     nav: {
       services: "Diensten",
       portfolio: "Ons Werk",
-      pricing: "Tarieven",
+      pricing: "Pakketten",
       about: "Over Ons",
       lang: "EN",
     },

@@ -15,7 +15,7 @@ const sizes = {
 
 export default function BookCallButton({
   label = "Plan een gesprek",
-  href = "/boeken",
+  href = "#contact",
   className = "",
   size = "md",
 }: Props) {

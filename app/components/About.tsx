@@ -44,8 +44,8 @@ export default function About() {
                 boxShadow: "0 2px 8px rgba(0,0,0,0.15), 0 8px 24px rgba(0,0,0,0.30)",
               }}
             >
-              <p className="text-2xl font-black text-amber-400">24h</p>
-              <p className="text-amber-500 text-sm font-medium">Reactietijd</p>
+              <p className="text-2xl font-black text-amber-400">48u</p>
+              <p className="text-amber-500 text-sm font-medium">Live</p>
             </div>
           </div>
         </FadeIn>

@@ -70,28 +70,28 @@ export default function Stats() {
             <p className="text-4xl sm:text-5xl font-black bg-gradient-to-br from-white to-amber-300 bg-clip-text text-transparent mb-2 leading-none tabular-nums">
               <Ticker from={30} to={1} unit="d" finalValue="48u" stepSize={1} msPerStep={210} delay={0} />
             </p>
-            <p className="text-amber-200 font-semibold text-base mb-1">Online na eerste gesprek</p>
+            <p className="text-amber-400 font-semibold text-base mb-1">Online na eerste gesprek</p>
             <p className="text-amber-600 text-sm">Niet weken. Niet maanden.</p>
           </div></FadeIn>
           <FadeIn delay={0.1}><div className="text-center">
             <p className="text-4xl sm:text-5xl font-black bg-gradient-to-br from-white to-amber-300 bg-clip-text text-transparent mb-2 leading-none tabular-nums">
               <Ticker from={2500} to={199} unit="€" stepSize={25} msPerStep={100} delay={100} />
             </p>
-            <p className="text-amber-200 font-semibold text-base mb-1">Alles inbegrepen vanaf</p>
+            <p className="text-amber-400 font-semibold text-base mb-1">Alles inbegrepen vanaf</p>
             <p className="text-amber-600 text-sm">Logo, website, contactformulier.</p>
           </div></FadeIn>
           <FadeIn delay={0.2}><div className="text-center">
             <p className="text-4xl sm:text-5xl font-black bg-gradient-to-br from-white to-amber-300 bg-clip-text text-transparent mb-2 leading-none tabular-nums">
               <Ticker from={0} to={100} unit="%" stepSize={1} msPerStep={40} delay={200} />
             </p>
-            <p className="text-amber-200 font-semibold text-base mb-1">Persoonlijke aanpak</p>
+            <p className="text-amber-400 font-semibold text-base mb-1">Persoonlijke aanpak</p>
             <p className="text-amber-600 text-sm">Geen templates, geen uitpoepen.</p>
           </div></FadeIn>
           <FadeIn delay={0.3}><div className="text-center">
             <p className="text-4xl sm:text-5xl font-black bg-gradient-to-br from-white to-amber-300 bg-clip-text text-transparent mb-2 leading-none tabular-nums">
               <Ticker from={7} to={1} unit="d" finalValue="2u" stepSize={1} msPerStep={585} delay={200} />
             </p>
-            <p className="text-amber-200 font-semibold text-base mb-1">Reactietijd</p>
+            <p className="text-amber-400 font-semibold text-base mb-1">Reactietijd</p>
             <p className="text-amber-600 text-sm">Direct contact, geen callcenter.</p>
           </div></FadeIn>
         </div>

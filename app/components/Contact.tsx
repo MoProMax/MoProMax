@@ -33,7 +33,7 @@ export default function Contact() {
   }
 
   const inputClass =
-    "w-full px-4 py-3 rounded-xl bg-white/[0.09] border border-white/[0.15] text-amber-200 placeholder-amber-700 text-sm focus:outline-none focus:border-amber-400/70 focus:bg-white/[0.14] backdrop-blur-xl transition-all shadow-inner shadow-black/10";
+    "w-full px-4 py-3 rounded-xl bg-white/[0.09] border border-white/[0.15] text-amber-400 placeholder-amber-700 text-sm focus:outline-none focus:border-amber-400/70 focus:bg-white/[0.14] backdrop-blur-xl transition-all shadow-inner shadow-black/10";
 
   return (
     <section id="contact" className="py-24 px-6 relative overflow-hidden">
@@ -42,7 +42,7 @@ export default function Contact() {
 
           <div>
             <p className="text-amber-400 font-semibold text-base uppercase tracking-widest mb-4">Contact</p>
-            <h2 className="text-4xl sm:text-5xl font-black text-amber-200 mb-6">{t.contact.headline}</h2>
+            <h2 className="text-4xl sm:text-5xl font-black text-amber-400 mb-6">{t.contact.headline}</h2>
             <p className="text-amber-300 text-xl leading-relaxed mb-10">{t.contact.subline}</p>
 
             <div className="flex items-center gap-3 bg-white/[0.07] backdrop-blur-2xl rounded-xl px-5 py-4 mb-6"
@@ -52,7 +52,7 @@ export default function Contact() {
                   <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                 </svg>
               </div>
-              <span className="text-amber-200 font-medium text-base">{t.contact.promise}</span>
+              <span className="text-amber-400 font-medium text-base">{t.contact.promise}</span>
             </div>
 
             <div className="flex items-center gap-3">
@@ -76,7 +76,7 @@ export default function Contact() {
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                     </svg>
                   </div>
-                  <p className="text-amber-200 font-bold text-lg">{t.contact.form.sent}</p>
+                  <p className="text-amber-400 font-bold text-lg">{t.contact.form.sent}</p>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-5">

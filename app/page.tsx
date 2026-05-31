@@ -5,6 +5,7 @@ import Problem from "@/app/components/Problem";
 import USP from "@/app/components/USP";
 import Services from "@/app/components/Services";
 import HowItWorks from "@/app/components/HowItWorks";
+import Automate from "@/app/components/Automate";
 import Portfolio from "@/app/components/Portfolio";
 import Pricing from "@/app/components/Pricing";
 import About from "@/app/components/About";
@@ -23,6 +24,7 @@ export default function Home() {
         <USP />
         <Services />
         <HowItWorks />
+        <Automate />
         <Portfolio />
         <Pricing />
         <About />

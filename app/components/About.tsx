@@ -1,52 +1,9 @@
 "use client";
 
-import { useState } from "react";
 import { useLang } from "@/app/context/LanguageContext";
 import { FadeIn } from "./FadeIn";
+import LiquidCard from "./LiquidCard";
 import BookCallButton from "./BookCallButton";
-
-/* Portrait — drop a real photo at /public/mo.jpg and it appears automatically.
-   Until then, a tasteful branded placeholder shows. */
-function Portrait() {
-  const [ok, setOk] = useState(true);
-  return (
-    <div className="relative mx-auto w-full max-w-sm">
-      {/* ambient glow */}
-      <div
-        className="absolute -inset-6 rounded-[2rem] pointer-events-none"
-        style={{ background: "radial-gradient(circle at 50% 40%, rgba(251,191,36,0.22), rgba(251,191,36,0.05) 45%, transparent 70%)", filter: "blur(10px)" }}
-      />
-      <div
-        className="relative aspect-[4/5] rounded-[2rem] overflow-hidden border border-white/10"
-        style={{ boxShadow: "0 40px 90px -30px rgba(0,0,0,0.7), inset 0 1px 0 rgba(255,255,255,0.08)" }}
-      >
-        {/* branded placeholder (shown if no photo yet) */}
-        <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-[#241a44] via-[#1c1338] to-[#150d2e]">
-          <div className="text-center">
-            <div className="w-28 h-28 rounded-full bg-gradient-to-br from-amber-400 to-amber-600 mx-auto flex items-center justify-center text-slate-900 font-black text-5xl shadow-2xl">
-              M
-            </div>
-          </div>
-        </div>
-        {/* real photo on top, hides itself if the file isn't there */}
-        {ok && (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img
-            src="/mo.jpg"
-            alt="Mo — oprichter van Mo Pro Max"
-            onError={() => setOk(false)}
-            className="absolute inset-0 w-full h-full object-cover"
-          />
-        )}
-        {/* name caption */}
-        <div className="absolute inset-x-0 bottom-0 p-5 bg-gradient-to-t from-black/70 to-transparent">
-          <p className="text-white font-black text-lg leading-tight">Mo</p>
-          <p className="text-amber-400 text-sm font-medium">Oprichter · Mo Pro Max</p>
-        </div>
-      </div>
-    </div>
-  );
-}
 
 export default function About() {
   const { t } = useLang();
@@ -55,10 +12,45 @@ export default function About() {
     <section id="about" className="relative overflow-hidden py-24 md:min-h-[88vh] md:flex md:items-center">
       <div className="relative max-w-6xl mx-auto px-6 w-full grid md:grid-cols-2 gap-12 md:gap-16 items-center">
 
+        {/* LEFT — avatar card + floating stat badges (zoals voorheen) */}
         <FadeIn direction="left">
-          <Portrait />
+          <div className="relative">
+            <LiquidCard noHover accentRgb="251,191,36" className="aspect-square max-w-sm mx-auto">
+              <div className="flex items-center justify-center h-full">
+                <div className="text-center px-8">
+                  <div className="relative w-32 h-32 mx-auto mb-5">
+                    <div className="absolute inset-0 rounded-full bg-gradient-to-br from-amber-500 to-amber-300 opacity-25 blur-[18px]" />
+                    <div className="relative w-full h-full rounded-full bg-gradient-to-br from-amber-500/30 to-amber-300/20 border-2 border-amber-500/40 flex items-center justify-center text-5xl font-black text-amber-300">
+                      M
+                    </div>
+                  </div>
+                  <p className="text-white font-bold text-xl">Mo</p>
+                  <p className="text-amber-500 text-base">Mo Pro Max</p>
+                </div>
+              </div>
+            </LiquidCard>
+
+            <div className="absolute -bottom-4 -right-4 bg-amber-500 text-slate-900 rounded-2xl px-5 py-4 shadow-xl shadow-amber-500/30">
+              <p className="text-2xl font-black">100%</p>
+              <p className="text-slate-900/70 text-xs font-semibold">Tevreden klanten</p>
+            </div>
+
+            <div
+              className="absolute -top-4 -left-4 rounded-2xl px-5 py-4 shadow-xl shadow-black/25 overflow-hidden"
+              style={{
+                background: "rgba(255,255,255,0.09)",
+                backdropFilter: "blur(10px)",
+                WebkitBackdropFilter: "blur(10px)",
+                boxShadow: "0 2px 8px rgba(0,0,0,0.15), 0 8px 24px rgba(0,0,0,0.30)",
+              }}
+            >
+              <p className="text-2xl font-black text-amber-400">24h</p>
+              <p className="text-amber-500 text-sm font-medium">Reactietijd</p>
+            </div>
+          </div>
         </FadeIn>
 
+        {/* RIGHT — het nieuwe persoonlijke verhaal */}
         <FadeIn direction="right" delay={0.12}>
           <div>
             <p className="text-amber-400 font-semibold text-sm uppercase tracking-[0.2em] mb-6">
@@ -78,7 +70,6 @@ export default function About() {
               </p>
             ))}
 
-            {/* personal signature */}
             <p className="text-amber-300/80 text-xl mt-6 mb-9" style={{ fontStyle: "italic" }}>
               — Mo
             </p>

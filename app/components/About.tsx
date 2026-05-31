@@ -24,7 +24,7 @@ export default function About() {
                       M
                     </div>
                   </div>
-                  <p className="text-white font-bold text-xl">Mo</p>
+                  <p className="text-amber-200 font-bold text-xl">Mo</p>
                   <p className="text-amber-500 text-base">Mo Pro Max</p>
                 </div>
               </div>
@@ -62,8 +62,8 @@ export default function About() {
                 key={i}
                 className={
                   i === 0
-                    ? "text-white font-bold text-2xl sm:text-3xl leading-snug tracking-tight mb-6"
-                    : "text-white/55 text-lg leading-relaxed mb-4"
+                    ? "text-amber-200 font-bold text-2xl sm:text-3xl leading-snug tracking-tight mb-6"
+                    : "text-amber-200/55 text-lg leading-relaxed mb-4"
                 }
               >
                 {paragraph}

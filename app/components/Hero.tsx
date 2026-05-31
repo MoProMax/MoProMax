@@ -28,7 +28,7 @@ export default function Hero() {
         </div>
 
         <h1
-          className="text-5xl sm:text-6xl lg:text-[88px] font-black text-white leading-[1.06] tracking-tight mb-6"
+          className="text-5xl sm:text-6xl lg:text-[88px] font-black text-amber-200 leading-[1.06] tracking-tight mb-6"
           style={{ animation: `hero-fade-up-lg 0.7s ${ease} 0.1s both` }}
         >
           {t.hero.headline}

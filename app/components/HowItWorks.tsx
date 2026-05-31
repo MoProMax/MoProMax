@@ -53,10 +53,10 @@ export default function HowItWorks() {
 
                 {/* card */}
                 <GlassCard className="flex-1 w-full p-6 flex flex-col">
-                  <h3 className="text-white font-black text-xl sm:text-2xl leading-tight mb-3">{s.title}</h3>
-                  <p className="text-white/60 text-base leading-relaxed">{s.body}</p>
+                  <h3 className="text-amber-200 font-black text-xl sm:text-2xl leading-tight mb-3">{s.title}</h3>
+                  <p className="text-amber-200/60 text-base leading-relaxed">{s.body}</p>
                   {/* desktop-only deepening */}
-                  <p className="hidden md:block text-white/40 text-[15px] leading-relaxed mt-3">{s.detail}</p>
+                  <p className="hidden md:block text-amber-200/40 text-[15px] leading-relaxed mt-3">{s.detail}</p>
                   {/* guarantee badge — pinned to bottom */}
                   <div className="mt-auto pt-5">
                     <div className="inline-flex items-center gap-2 bg-emerald-500/10 border border-emerald-400/25 rounded-full px-4 py-2">

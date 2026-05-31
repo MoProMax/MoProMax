@@ -377,13 +377,15 @@ export const translations = {
       ],
     },
     about: {
-      headline: "De persoon achter Mo Pro Max",
+      headline: "Even voorstellen",
       story: [
-        "Ik startte Mo Pro Max nadat ik te vaak zag hoe goede ondernemers duizenden euro's betaalden voor een website die eruitzag als die van iedereen.",
-        "Een template met hun logo. 'Welkom op onze website' in de header. Een factuur die pijn deed. En een website die er stond — maar niets deed, niemand vond en niets vertelde over wie ze écht zijn.",
-        "Ik doe het anders. Ik stel de vragen die anderen overslaan. Ik schrijf de teksten zelf. Ik lever snel en blijf na de lancering. En ik begin pas te bouwen als ik jouw bedrijf écht begrijp — niet alleen je logo.",
+        "Ik ben Mo. En ik doe het bewust anders dan de rest.",
+        "De meeste bureaus kopen een handvol templates en verkopen diezelfde sjablonen keer op keer. Het proces is uitgekleed en geautomatiseerd — want de winst zit in volume, niet in jouw bedrijf. Je betaalt voor maatwerk, maar krijgt een sjabloon dat tientallen anderen ook hebben, soms met dezelfde voorgekauwde teksten erin. Een site die op honderd andere lijkt, die niemand onthoudt en die Google straft voor dubbele inhoud.",
+        "Ik geloof dat elke ondernemer een online plek verdient die écht van hem is. Geen template met jouw naam erin geplakt, maar iets dat klopt met wie je bent en wat je doet.",
+        "Daarom begin ik nooit meteen met bouwen. Ik begin met luisteren — naar jou, je klanten, je vak. Pas als ik je bedrijf snap, ontwerp ik er iets omheen.",
+        "En als je site live staat, ben ik niet ineens weg. Ik blijf bereikbaar, ik denk mee, en ik ben er als je iets nodig hebt. Jouw succes is het enige dat voor mij telt.",
       ],
-      cta: "Laten we iets echts bouwen",
+      cta: "Laten we kennismaken",
     },
     contact: {
       headline: "Laten we praten.",

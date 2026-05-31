@@ -35,7 +35,7 @@ export default function HowItWorks() {
         Van gesprek naar live.<br /><span className="text-amber-400">In 48 uur.</span>
       </Statement>
 
-      <div className="max-w-6xl mx-auto px-6 pb-28">
+      <div className="max-w-[1600px] mx-auto px-6 pb-28">
         <div className="relative grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-6">
           {/* horizontal connecting line across the three nodes (desktop only) */}
           <div className="hidden md:block absolute top-7 left-[16.66%] right-[16.66%] h-px bg-gradient-to-r from-amber-500/50 via-amber-400/40 to-emerald-400/50" />

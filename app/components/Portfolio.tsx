@@ -64,7 +64,7 @@ export default function Portfolio() {
 
   return (
     <section id="portfolio" className="py-24 px-6 relative overflow-hidden">
-      <div className="relative max-w-6xl mx-auto">
+      <div className="relative max-w-[1600px] mx-auto">
         <FadeIn className="text-center mb-16">
           <p className="text-amber-400 font-semibold text-base uppercase tracking-widest mb-3">{t.portfolio.headline}</p>
           <h2 className="text-4xl sm:text-5xl font-black text-white">{t.portfolio.subline}</h2>

@@ -10,7 +10,7 @@ export default function Footer() {
 
   return (
     <footer className="bg-black/30 backdrop-blur-sm border-t border-white/[0.07] py-12 px-6">
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-[1600px] mx-auto">
         <div className="flex flex-col md:flex-row items-center justify-between gap-8 mb-8">
           <div className="flex flex-col gap-2">
             <Image

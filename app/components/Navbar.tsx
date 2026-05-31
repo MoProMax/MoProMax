@@ -17,7 +17,7 @@ export default function Navbar() {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-[#0f0a1e]/55 backdrop-blur-lg border-b border-white/[0.06]">
-      <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div className="max-w-[1600px] mx-auto px-6 py-4 flex items-center justify-between">
         <div className="hidden md:flex items-center gap-8">
           {links.map((l) => (
             <a key={l.label} href={l.href} className="text-amber-400 hover:text-amber-200 text-base font-medium transition-all border border-amber-500/60 hover:border-amber-300 px-4 py-1.5 rounded-full bg-amber-500/10 hover:bg-amber-500/20 backdrop-blur-sm">

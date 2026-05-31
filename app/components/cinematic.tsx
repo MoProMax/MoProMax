@@ -71,7 +71,7 @@ export function Moment({
 }) {
   return (
     <div className={`${compact ? "min-h-[70vh]" : "min-h-[84vh]"} flex items-center px-6 py-12`}>
-      <div className={`max-w-6xl mx-auto w-full grid md:grid-cols-2 gap-10 md:gap-16 items-center ${flip ? "md:[direction:rtl]" : ""}`}>
+      <div className={`max-w-[1600px] mx-auto w-full grid md:grid-cols-2 gap-10 md:gap-16 items-center ${flip ? "md:[direction:rtl]" : ""}`}>
         <Reveal className="md:[direction:ltr]">
           <p className={`font-semibold text-sm uppercase tracking-[0.2em] mb-5 ${eyebrowClass}`}>{eyebrow}</p>
           <h3 className={`${compact ? "text-4xl sm:text-5xl lg:text-[56px]" : "text-4xl sm:text-5xl lg:text-6xl"} font-black text-white leading-[1.04] tracking-tight mb-6`}>

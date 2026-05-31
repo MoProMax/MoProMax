@@ -64,7 +64,7 @@ export default function Stats() {
     <section className="py-20 px-6 relative overflow-hidden">
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
       <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-[1600px] mx-auto">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-4">
           <FadeIn delay={0}><div className="text-center">
             <p className="text-4xl sm:text-5xl font-black bg-gradient-to-br from-white to-amber-300 bg-clip-text text-transparent mb-2 leading-none tabular-nums">

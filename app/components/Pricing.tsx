@@ -18,7 +18,7 @@ export default function Pricing() {
 
   return (
     <section id="pricing" className="py-24 px-6 relative overflow-hidden">
-      <div className="relative max-w-6xl mx-auto">
+      <div className="relative max-w-[1600px] mx-auto">
 
         <div className="text-center mb-14">
           <p className="text-amber-400 font-semibold text-base uppercase tracking-widest mb-3">{headline}</p>

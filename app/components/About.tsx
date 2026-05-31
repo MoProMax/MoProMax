@@ -10,7 +10,7 @@ export default function About() {
 
   return (
     <section id="about" className="relative overflow-hidden py-24 md:min-h-[88vh] md:flex md:items-center">
-      <div className="relative max-w-6xl mx-auto px-6 w-full grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+      <div className="relative max-w-[1600px] mx-auto px-6 w-full grid md:grid-cols-2 gap-12 md:gap-16 items-center">
 
         {/* LEFT — avatar card + floating stat badges (zoals voorheen) */}
         <FadeIn direction="left">

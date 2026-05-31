@@ -1,66 +1,175 @@
 "use client";
 
-import { useLang } from "@/app/context/LanguageContext";
-import { FadeIn, StaggerChildren, StaggerItem } from "./FadeIn";
-import LiquidCard from "./LiquidCard";
+import { GlassCard, Moment, Statement } from "./cinematic";
+import BookCallButton from "./BookCallButton";
 
-const gradients = [
-  { rgb: "192,38,211",  icon: "from-pink-500/20 to-purple-600/10",   border: "border-pink-500/15"    },
-  { rgb: "251,191,36",  icon: "from-amber-500/20 to-amber-300/10",   border: "border-amber-500/15"   },
-  { rgb: "52,211,153",  icon: "from-emerald-500/15 to-teal-600/10",  border: "border-emerald-500/15" },
-  { rgb: "245,158,11",  icon: "from-amber-500/15 to-orange-500/10",  border: "border-amber-500/15"   },
-];
+/* ════════════ SERVICE VISUALS — interface mockups ════════════ */
 
-const serviceIcons = [
-  <svg key="branding" className="w-6 h-6 text-pink-400" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
-    <path strokeLinecap="round" strokeLinejoin="round" d="M9.53 16.122a3 3 0 00-5.78 1.128 2.25 2.25 0 01-2.4 2.245 4.5 4.5 0 008.4-2.245c0-.399-.078-.78-.22-1.128zm0 0a15.998 15.998 0 003.388-1.62m-5.043-.025a15.994 15.994 0 011.622-3.395m3.42 3.42a15.995 15.995 0 004.764-4.648l3.876-5.814a1.151 1.151 0 00-1.597-1.597L14.146 6.32a15.996 15.996 0 00-4.649 4.763m3.42 3.42a6.776 6.776 0 00-3.42-3.42" />
-  </svg>,
-  <svg key="website" className="w-6 h-6 text-amber-400" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
-    <path strokeLinecap="round" strokeLinejoin="round" d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0H3" />
-  </svg>,
-  <svg key="booking" className="w-6 h-6 text-emerald-400" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
-    <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5m-9-6h.008v.008H12v-.008zM12 15h.008v.008H12V15zm0 2.25h.008v.008H12v-.008zM9.75 15h.008v.008H9.75V15zm0 2.25h.008v.008H9.75v-.008zM7.5 15h.008v.008H7.5V15zm0 2.25h.008v.008H7.5v-.008zm6.75-4.5h.008v.008h-.008v-.008zm0 2.25h.008v.008h-.008V15zm0 2.25h.008v.008h-.008v-.008zm2.25-4.5h.008v.008H16.5v-.008zm0 2.25h.008v.008H16.5V15z" />
-  </svg>,
-  <svg key="seo" className="w-6 h-6 text-amber-400" fill="none" stroke="currentColor" strokeWidth={1.5} viewBox="0 0 24 24">
-    <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941" />
-  </svg>,
-];
+/* 1 · Branding & house style */
+function BrandKitVisual() {
+  return (
+    <GlassCard className="w-full max-w-md p-6">
+      <p className="text-white/40 text-xs uppercase tracking-wider mb-4">Merkstijl</p>
+      <div className="flex items-center gap-4 mb-5">
+        <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-fuchsia-500 to-purple-600 flex items-center justify-center text-white font-black text-2xl shadow-lg shrink-0">M</div>
+        <div>
+          <p className="text-white font-bold text-lg leading-tight">Jouw merk</p>
+          <p className="text-white/40 text-sm">onmiskenbaar van jou</p>
+        </div>
+      </div>
+      <div className="flex gap-2 mb-5">
+        {["bg-fuchsia-500", "bg-purple-500", "bg-amber-400", "bg-slate-800", "bg-white/90"].map((c) => (
+          <div key={c} className={`h-9 flex-1 rounded-lg ${c} border border-white/10`} />
+        ))}
+      </div>
+      <div className="bg-white/[0.04] rounded-xl px-4 py-3 border border-white/5 flex items-baseline justify-between">
+        <span className="text-white font-black text-2xl">Aa</span>
+        <span className="text-white/40 text-xs">Typografie · Logo · Stijlgids</span>
+      </div>
+    </GlassCard>
+  );
+}
+
+/* 2 · Website on a device */
+function DeviceVisual() {
+  return (
+    <GlassCard className="w-full max-w-md p-0">
+      <div className="flex items-center gap-1.5 px-4 py-2.5 border-b border-white/5 bg-white/[0.02]">
+        <span className="w-2.5 h-2.5 rounded-full bg-white/15" /><span className="w-2.5 h-2.5 rounded-full bg-white/15" /><span className="w-2.5 h-2.5 rounded-full bg-white/15" />
+        <span className="ml-3 text-white/35 text-xs bg-white/[0.05] rounded-full px-3 py-0.5">jouwbedrijf.nl</span>
+      </div>
+      <div className="p-6">
+        <div className="flex items-center justify-between mb-6">
+          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-amber-400 to-amber-600" />
+          <div className="flex gap-3">{[0,1,2].map(i=><div key={i} className="h-2 w-8 bg-white/10 rounded-full" />)}</div>
+        </div>
+        <div className="h-3 w-3/4 bg-white/15 rounded-full mb-2.5" />
+        <div className="h-3 w-1/2 bg-white/15 rounded-full mb-5" />
+        <div className="inline-block bg-gradient-to-r from-emerald-500 to-emerald-600 text-white text-xs font-bold px-4 py-2 rounded-lg">Plan een gesprek</div>
+        <div className="mt-5 h-20 rounded-xl bg-white/[0.04] border border-white/5" />
+      </div>
+    </GlassCard>
+  );
+}
+
+/* 3 · Booking system */
+function BookingVisual() {
+  const days = ["Ma", "Di", "Wo", "Do", "Vr"];
+  const slots = [{ t: "09:00", on: false }, { t: "10:30", on: true }, { t: "13:00", on: false }, { t: "15:30", on: false }];
+  return (
+    <GlassCard className="w-full max-w-md p-6">
+      <div className="flex items-center justify-between mb-4">
+        <p className="text-white font-bold">Kies een moment</p>
+        <span className="text-emerald-400 text-xs font-semibold">maart</span>
+      </div>
+      <div className="grid grid-cols-5 gap-2 mb-5">
+        {days.map((d, i) => (
+          <div key={d} className={`rounded-xl py-2.5 text-center border ${i === 2 ? "bg-emerald-500/20 border-emerald-400/40" : "bg-white/[0.04] border-white/5"}`}>
+            <p className="text-white/40 text-[10px]">{d}</p>
+            <p className={`text-sm font-bold ${i === 2 ? "text-emerald-300" : "text-white/70"}`}>{12 + i}</p>
+          </div>
+        ))}
+      </div>
+      <div className="grid grid-cols-2 gap-2">
+        {slots.map((s) => (
+          <div key={s.t} className={`rounded-xl py-2.5 text-center text-sm font-semibold border ${s.on ? "bg-emerald-500/90 text-slate-900 border-emerald-400" : "bg-white/[0.04] text-white/60 border-white/5"}`}>
+            {s.t}{s.on && " ✓"}
+          </div>
+        ))}
+      </div>
+    </GlassCard>
+  );
+}
+
+/* 4 · SEO ranking climb */
+function RankingVisual() {
+  const rows = [
+    { n: "Jouw bedrijf", pos: "1", you: true },
+    { n: "Concurrent A", pos: "2", you: false },
+    { n: "Concurrent B", pos: "3", you: false },
+  ];
+  return (
+    <GlassCard className="w-full max-w-md p-6">
+      <div className="flex items-center gap-2 bg-white/[0.05] rounded-full px-4 py-2 mb-5 border border-white/5">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#ffffff66" strokeWidth="2"><circle cx="11" cy="11" r="7" /><path d="m21 21-4.3-4.3" /></svg>
+        <span className="text-white/55 text-sm">kapper amsterdam</span>
+      </div>
+      <div className="space-y-2.5">
+        {rows.map((r) => (
+          <div key={r.n} className={`flex items-center gap-3 rounded-xl px-4 py-3 border ${r.you ? "bg-emerald-500/[0.08] border-emerald-400/30" : "bg-white/[0.04] border-white/5"}`}>
+            <span className={`w-7 h-7 rounded-lg flex items-center justify-center font-black text-sm ${r.you ? "bg-emerald-500 text-slate-900" : "bg-white/10 text-white/50"}`}>{r.pos}</span>
+            <span className={`text-sm font-medium ${r.you ? "text-emerald-200" : "text-white/60"}`}>{r.n}</span>
+            {r.you && <span className="ml-auto text-emerald-400 text-xs font-bold">↑ bovenaan</span>}
+          </div>
+        ))}
+      </div>
+    </GlassCard>
+  );
+}
+
+/* ════════════════════════════ SECTION ════════════════════════════ */
 
 export default function Services() {
-  const { t } = useLang();
-
   return (
-    <section id="services" className="py-24 px-6 relative overflow-hidden">
-      <div className="relative max-w-6xl mx-auto">
-        <FadeIn className="mb-14">
-          <p className="text-amber-400 font-semibold text-base uppercase tracking-widest mb-3">{t.services.headline}</p>
-          <h2 className="text-4xl sm:text-5xl font-black text-white max-w-xl leading-tight">{t.services.subline}</h2>
-        </FadeIn>
+    <section id="services" className="relative overflow-hidden">
 
-        <StaggerChildren className="grid grid-cols-1 md:grid-cols-2 gap-4 py-6">
-          {t.services.items.map((item, i) => (
-            <StaggerItem key={item.title}>
-              <LiquidCard accentRgb={gradients[i].rgb}>
-                <div className="p-8">
-                  <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${gradients[i].icon} border ${gradients[i].border} flex items-center justify-center mb-6`}>
-                    {serviceIcons[i]}
-                  </div>
-                  <h3 className="text-2xl font-black text-white mb-3">{item.title}</h3>
-                  <p className="text-amber-300 leading-relaxed text-base mb-7">{item.body}</p>
-                  <ul className="space-y-2.5">
-                    {item.features.map((f) => (
-                      <li key={f} className="flex items-start gap-3">
-                        <span className="w-1.5 h-1.5 rounded-full bg-amber-400 flex-shrink-0 mt-[9px]" />
-                        <span className="text-base text-amber-300">{f}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </LiquidCard>
-            </StaggerItem>
-          ))}
-        </StaggerChildren>
-      </div>
+      <Statement minH="min-h-[60vh]" eyebrow="Wat je krijgt"
+        sub="Vier diensten. Één doel: een bedrijf dat online werkt — gebouwd rond jou.">
+        Alles wat je nodig hebt.<br /><span className="text-amber-400">Niets wat je niet nodig hebt.</span>
+      </Statement>
+
+      <Moment
+        eyebrow="Branding & Huisstijl"
+        glow="217,70,239" eyebrowClass="text-fuchsia-300" check="#e879f9"
+        title={<>Een merk dat<br />mensen onthouden.</>}
+        line="Voor we ook maar iets ontwerpen, leren we wie jij bent en wie jouw klanten zijn. Het resultaat: een identiteit die onmiskenbaar van jou is."
+        detail="Je merk is meer dan een logo — het is de eerste indruk, het gevoel dat blijft hangen, de reden dat iemand jóu onthoudt tussen tien anderen. Dat gevoel bouwen we op, van kleur tot toon."
+        features={["Uniek logo op maat", "Kleurenpalet & typografie", "Merk stijlgids", "Social media kit (profiel, banners, post- & story-templates)", "Originele teksten — geschreven in jouw stem"]}
+        visual={<BrandKitVisual />}
+      />
+
+      <Moment flip
+        eyebrow="Website Ontwerp & Bouw"
+        glow="251,191,36" eyebrowClass="text-amber-300"
+        title={<>100% op maat.<br />Geen template.</>}
+        line="Geen shortcuts. Een website die jouw verhaal vertelt, op elk apparaat werkt en bezoekers een reden geeft om contact op te nemen."
+        detail="Elke pixel heeft een doel. Snel ladend, helder, en gebouwd om bezoekers van 'interessant' naar 'ik neem contact op' te brengen — op de telefoon net zo goed als op de laptop."
+        features={["100% op maat ontwerp", "Mobiel-first & supersnel", "Originele websiteteksten voor jou geschreven", "Contactformulier + Google Maps", "2 maanden support inbegrepen"]}
+        visual={<DeviceVisual />}
+      />
+
+      <Moment
+        eyebrow="Techniek & Functionaliteit"
+        glow="52,211,153" eyebrowClass="text-emerald-300"
+        title={<>Alle techniek die je<br />bedrijf nodig heeft.</>}
+        line="Een boekingssysteem, een webshop, een klantenportaal, een chatbot — wat jouw bedrijf ook nodig heeft, wij bouwen het er naadloos in."
+        detail="We leveren niet zomaar een website, maar elke technische functie die jou werk uit handen neemt en klanten oplevert. Begin met wat je nú nodig hebt en voeg later toe wat je bedrijf laat groeien. Eén systeem, helemaal van jou."
+        features={[
+          "Online boekingssysteem & agenda",
+          "Webshop met iDEAL, creditcard & Apple Pay",
+          "Klantenportaal, chatbot & live chat",
+          "E-mailmarketing & automatische reviews",
+          "Koppeling met je boekhouding & bestaande tools",
+        ]}
+        visual={<BookingVisual />}
+      />
+
+      <Moment flip
+        eyebrow="SEO · Vindbaarheid"
+        glow="56,189,248" eyebrowClass="text-sky-300" check="#38bdf8"
+        title={<>Bovenaan staan<br />als het telt.</>}
+        line="Wat heeft een geweldige website voor zin als niemand je vindt? We zorgen dat je zichtbaar bent als jouw klanten zoeken — op Google, op Maps, in jouw regio."
+        detail="Vindbaar zijn is geen toeval. We zorgen dat je verschijnt op het moment dat iemand in jouw buurt precies zoekt naar wat jij doet — en dat je bóven de concurrent staat."
+        features={["Google Business instellen & optimaliseren", "Zichtbaarheid op Google Maps", "Hogere zoekposities", "Review-strategie", "3 maanden rapportage"]}
+        visual={<RankingVisual />}
+      />
+
+      <Statement minH="min-h-[64vh]"
+        sub="Los, of als compleet pakket — afgestemd op wat jouw bedrijf nodig heeft."
+        cta={<BookCallButton size="lg" label="Bespreek jouw project" />}>
+        Samen <span className="text-amber-400">jouw set</span> samenstellen.
+      </Statement>
+
     </section>
   );
 }

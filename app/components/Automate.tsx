@@ -80,8 +80,8 @@ function LoyaltyVisual() {
         </div>
       </div>
       <div className="flex items-center gap-3 bg-amber-500/[0.08] rounded-2xl p-4 border border-amber-400/20">
-        <span className="text-amber-400 text-base">★★★★★</span>
-        <span className="text-white/70 text-sm"><span className="text-amber-400 font-bold">4,9</span> · 50+ reviews</span>
+        <span className="text-amber-300 text-base">★★★★★</span>
+        <span className="text-white/70 text-sm"><span className="text-amber-300 font-bold">4,9</span> · 50+ reviews</span>
         <span className="ml-auto text-white/30 text-xs">Google</span>
       </div>
     </GlassCard>
@@ -130,7 +130,7 @@ export default function Automate() {
         detail="Je bent net wakker, koffie in de hand. Je checkt je telefoon en ziet vijf nieuwe afspraken — gisteravond binnengekomen, terwijl jij sliep. Niemand hoefde te bellen, niemand hoefde te wachten tot maandag. Ze wilden iets, en je website regelde het."
       >
         Je wordt wakker.<br />Er zijn al vijf afspraken<br />
-        <span className="text-amber-400">ingeboekt.</span>
+        <span className="text-amber-300">ingeboekt.</span>
       </Statement>
 
       {/* DOEL 1 · nieuwe klanten winnen — chatbot + live chat + boeking */}
@@ -152,7 +152,7 @@ export default function Automate() {
       {/* DOEL 2 · omzet — webshop + betalingen */}
       <Moment flip
         eyebrow="Verkopen & afrekenen"
-        glow="52,211,153" eyebrowClass="text-emerald-300"
+        glow="52,211,153" eyebrowClass="text-amber-300"
         title={<>Het verkoopt,<br />ook als je dicht bent.</>}
         line="Producten, diensten, abonnementen of cadeaubonnen — je website verkoopt en incasseert, de klok rond."
         detail="Afgerekend met iDEAL, creditcard of Apple Pay, precies zoals je klant gewend is. Terwijl jij bij een andere klant zit of slaapt, komt de omzet binnen. Geen kassa, geen gedoe — gewoon verkopen, dag en nacht."
@@ -168,7 +168,7 @@ export default function Automate() {
       {/* DOEL 3 · klanten behouden — portaal + e-mail + reviews */}
       <Moment
         eyebrow="Klanten behouden"
-        glow="167,139,250" eyebrowClass="text-violet-300" check="#a78bfa"
+        glow="167,139,250" eyebrowClass="text-amber-300" check="#34d399"
         title={<>Het maakt van bezoekers<br />vaste klanten.</>}
         line="Een eigen plek die ze bindt, een mailtje dat ze terughaalt, en reviews die nieuwe klanten overtuigen."
         detail="In hun eigen vertrouwde omgeving regelen klanten alles zelf — dat bindt. Een goed getimede mail haalt stille klanten terug. En tevreden klanten laten reviews achter die jou hoger in Google zetten. Zo levert elke klant er weer een nieuwe op."
@@ -184,7 +184,7 @@ export default function Automate() {
       {/* DOEL 4 · rust & overzicht — integratie + boekhouding + app */}
       <Moment flip
         eyebrow="Alles in één"
-        glow="56,189,248" eyebrowClass="text-sky-300" check="#38bdf8"
+        glow="56,189,248" eyebrowClass="text-amber-300" check="#34d399"
         title={<>En alles werkt<br />als één geheel.</>}
         line="Je boekhouding, je agenda, je klanten en je verkopen — verbonden in één systeem, op elk apparaat."
         detail="Geen losse tools waar je steeds hetzelfde in tikt. Je boekhouding ziet je facturen, je agenda synchroniseert zodat niemand dubbel boekt, en alles staat als app op je telefoon. Eén overzicht, samengesteld met de functies die jóuw bedrijf nodig heeft."
@@ -201,7 +201,7 @@ export default function Automate() {
         detail="Eén website die nieuwe klanten wint, verkoopt, je klanten vasthoudt en je papierwerk overneemt — samengesteld met precies de functies die jóuw bedrijf nodig heeft. Vandaag, en wat je morgen ook nodig hebt."
         cta={<BookCallButton size="lg" label="Plan een gratis gesprek" />}>
         Niet mooi en leeg.<br />
-        <span className="text-amber-400">Mooi, en werkend.</span>
+        <span className="text-amber-300">Mooi, en werkend.</span>
       </Statement>
 
     </section>

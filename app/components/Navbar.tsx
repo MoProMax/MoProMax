@@ -20,18 +20,18 @@ export default function Navbar() {
       <div className="max-w-[1600px] mx-auto px-6 py-4 flex items-center justify-between">
         <div className="hidden md:flex items-center gap-8">
           {links.map((l) => (
-            <a key={l.label} href={l.href} className="text-amber-400 hover:text-amber-200 text-base font-medium transition-all border border-amber-500/60 hover:border-amber-300 px-4 py-1.5 rounded-full bg-amber-500/10 hover:bg-amber-500/20 backdrop-blur-sm">
+            <a key={l.label} href={l.href} className="text-amber-300 hover:text-amber-200 text-base font-medium transition-all border border-amber-500/60 hover:border-amber-300 px-4 py-1.5 rounded-full bg-amber-500/10 hover:bg-amber-500/20 backdrop-blur-sm">
               {l.label}
             </a>
           ))}
         </div>
 
         <div className="flex items-center gap-3">
-          <button onClick={toggle} className="text-amber-500 hover:text-amber-300 text-sm font-bold transition-colors px-3 py-1.5 rounded-lg border border-amber-500/20 hover:border-amber-400/30 bg-white/[0.04]">
+          <button onClick={toggle} className="text-amber-300 hover:text-amber-300 text-sm font-bold transition-colors px-3 py-1.5 rounded-lg border border-amber-500/20 hover:border-amber-400/30 bg-white/[0.04]">
             {t.nav.lang}
           </button>
           <BookCallButton size="sm" className="hidden sm:inline-flex" />
-          <button onClick={() => setMenuOpen((o) => !o)} className="md:hidden text-amber-400 hover:text-amber-200 p-1 transition-colors" aria-label="Menu">
+          <button onClick={() => setMenuOpen((o) => !o)} className="md:hidden text-amber-300 hover:text-amber-200 p-1 transition-colors" aria-label="Menu">
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               {menuOpen
                 ? <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />

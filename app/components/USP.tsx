@@ -19,7 +19,7 @@ function IntakeVisual() {
       <div className="space-y-2.5">
         {qs.map((q) => (
           <div key={q} className="flex items-start gap-2.5 bg-white/[0.04] rounded-2xl px-4 py-3 border border-white/5">
-            <span className="text-amber-400 text-sm mt-0.5">?</span>
+            <span className="text-amber-300 text-sm mt-0.5">?</span>
             <span className="text-white/80 text-sm">{q}</span>
           </div>
         ))}
@@ -102,7 +102,7 @@ export default function USP() {
 
       <Statement minH="min-h-[58vh]" eyebrow="Waarom Mo Pro Max"
         sub="Vier beloftes die de meeste bureaus niet durven te doen.">
-        Wat ons écht<br /><span className="text-amber-400">anders maakt.</span>
+        Wat ons écht<br /><span className="text-amber-300">anders maakt.</span>
       </Statement>
 
       <Moment
@@ -122,7 +122,7 @@ export default function USP() {
 
       <Moment flip
         eyebrow="De garantie"
-        glow="52,211,153" eyebrowClass="text-emerald-300"
+        glow="52,211,153" eyebrowClass="text-amber-300"
         title={<>48 uur.<br />Of je geld terug.</>}
         line="Geen streefdoel. Een garantie. Als jouw site er niet binnen 48 uur staat, krijg je je geld terug. Zonder uitzondering, zonder kleine lettertjes."
         detail="Andere bureaus doen er 6 tot 12 weken over. Wij leveren binnen twee dagen na het gesprek — en we durven er onze vergoeding op te zetten. Staat je site er niet op tijd? Dan krijg je je geld terug."
@@ -137,7 +137,7 @@ export default function USP() {
 
       <Moment
         eyebrow="Het contact"
-        glow="56,189,248" eyebrowClass="text-sky-300" check="#38bdf8"
+        glow="56,189,248" eyebrowClass="text-amber-300" check="#34d399"
         title={<>Jij belt.<br />Wij nemen op.</>}
         line="Geen ticketsysteem. Geen wachtrij. Direct contact met degene die jouw site gebouwd heeft — en jouw bedrijf bij naam kent."
         detail="Geen callcenter, geen anonieme helpdesk, geen 'uw bericht is belangrijk voor ons'. Je spreekt direct met de persoon die jouw website bouwde en jouw bedrijf kent. Eén aanspreekpunt, altijd."

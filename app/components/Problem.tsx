@@ -3,7 +3,7 @@
 import { GlassCard, Moment, Statement } from "./cinematic";
 import BookCallButton from "./BookCallButton";
 
-const ROSE = "text-rose-400";
+const ROSE = "text-amber-300";
 
 /* ════════════ PAIN VISUALS — show what "broken" looks like ════════════ */
 
@@ -151,7 +151,7 @@ export default function Problem() {
     <section className="relative overflow-hidden">
 
       <Statement eyebrowClass={ROSE} eyebrow="Herken je dit?" sub="Je doet het goed. Maar online is dat nog niet te zien — en dat kost je elke dag klanten.">
-        Je bent goed in je vak.<br /><span className="text-rose-400">Alleen weet niemand het.</span>
+        Je bent goed in je vak.<br /><span className="text-amber-300">Alleen weet niemand het.</span>
       </Statement>
 
       <Moment compact eyebrowClass={ROSE} glow="251,113,133"
@@ -205,7 +205,7 @@ export default function Problem() {
       <Statement minH="min-h-[70vh]" eyebrowClass={ROSE}
         sub="Daarom bestaat Mo Pro Max."
         cta={<BookCallButton size="lg" label="Plan een gratis gesprek" />}>
-        Het kan <span className="text-amber-400">anders.</span>
+        Het kan <span className="text-amber-300">anders.</span>
       </Statement>
 
     </section>

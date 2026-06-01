@@ -20,19 +20,19 @@ export default function Footer() {
               height={84}
               className="h-auto block"
             />
-            <p className="text-amber-600 text-sm">{t.footer.tagline}</p>
+            <p className="text-amber-300 text-sm">{t.footer.tagline}</p>
           </div>
           <nav className="flex flex-wrap items-center justify-center gap-6">
             {t.footer.links.map((label, i) => (
-              <a key={label} href={linkHrefs[i]} className="text-amber-500 hover:text-amber-300 text-base font-medium transition-colors">{label}</a>
+              <a key={label} href={linkHrefs[i]} className="text-amber-300 hover:text-amber-300 text-base font-medium transition-colors">{label}</a>
             ))}
           </nav>
         </div>
-        <div className="border-t border-white/[0.05] pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-amber-700 text-sm">
+        <div className="border-t border-white/[0.05] pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-amber-300 text-sm">
           <p>© {year} Mo Pro Max. {t.footer.legal}</p>
           <div className="flex items-center gap-4">
-            <a href="#" className="hover:text-amber-500 transition-colors">Privacy</a>
-            <a href="#" className="hover:text-amber-500 transition-colors">Terms</a>
+            <a href="#" className="hover:text-amber-300 transition-colors">Privacy</a>
+            <a href="#" className="hover:text-amber-300 transition-colors">Terms</a>
           </div>
         </div>
       </div>

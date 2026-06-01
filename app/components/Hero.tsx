@@ -60,7 +60,7 @@ export default function Hero() {
         </div>
 
         <p
-          className="text-amber-600 text-base mb-14"
+          className="text-amber-300 text-base mb-14"
           style={{ animation: `hero-fade 0.6s ease-out 0.6s both` }}
         >
           {t.hero.ctaSub}
@@ -70,11 +70,11 @@ export default function Hero() {
           className="flex flex-wrap justify-center gap-2 hidden"
           style={{ animation: `hero-fade 0.8s ease-out 0.7s both` }}
         >
-          <span className="text-amber-600 text-sm font-medium self-center mr-1">Voor:</span>
+          <span className="text-amber-300 text-sm font-medium self-center mr-1">Voor:</span>
           {t.hero.niches.map((niche, i) => (
             <span
               key={niche}
-              className="bg-white/[0.04] border border-amber-500/[0.15] text-amber-500 text-sm font-medium px-4 py-1.5 rounded-full"
+              className="bg-white/[0.04] border border-amber-500/[0.15] text-amber-300 text-sm font-medium px-4 py-1.5 rounded-full"
               style={{ animation: `hero-niche 0.4s ease-out ${(0.75 + i * 0.06).toFixed(2)}s both` }}
             >
               {niche}

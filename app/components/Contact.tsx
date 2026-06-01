@@ -56,7 +56,7 @@ export default function Contact() {
             </div>
 
             <div className="flex items-center gap-3">
-              <span className="text-amber-600 text-base">{t.contact.whatsapp}</span>
+              <span className="text-amber-300 text-base">{t.contact.whatsapp}</span>
               <a href="https://wa.me/31600000000" target="_blank" rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-green-500/10 hover:bg-green-500/20 border border-green-500/25 text-green-400 text-sm font-bold px-4 py-2 rounded-lg transition-all">
                 <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -82,20 +82,20 @@ export default function Contact() {
                 <form onSubmit={handleSubmit} className="space-y-5">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     <div>
-                      <label className="block text-sm font-semibold text-amber-500 mb-2 uppercase tracking-wider">{t.contact.form.name}</label>
+                      <label className="block text-sm font-semibold text-amber-300 mb-2 uppercase tracking-wider">{t.contact.form.name}</label>
                       <input type="text" required value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} className={inputClass} />
                     </div>
                     <div>
-                      <label className="block text-sm font-semibold text-amber-500 mb-2 uppercase tracking-wider">{t.contact.form.email}</label>
+                      <label className="block text-sm font-semibold text-amber-300 mb-2 uppercase tracking-wider">{t.contact.form.email}</label>
                       <input type="email" required value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} className={inputClass} />
                     </div>
                   </div>
                   <div>
-                    <label className="block text-xs font-semibold text-amber-500 mb-2 uppercase tracking-wider">{t.contact.form.business}</label>
+                    <label className="block text-xs font-semibold text-amber-300 mb-2 uppercase tracking-wider">{t.contact.form.business}</label>
                     <input type="text" value={form.business} onChange={(e) => setForm({ ...form, business: e.target.value })} className={inputClass} />
                   </div>
                   <div>
-                    <label className="block text-xs font-semibold text-amber-500 mb-2 uppercase tracking-wider">{t.contact.form.message}</label>
+                    <label className="block text-xs font-semibold text-amber-300 mb-2 uppercase tracking-wider">{t.contact.form.message}</label>
                     <textarea rows={4} required value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} className={`${inputClass} resize-none`} />
                   </div>
                   {error && <p className="text-red-400 text-sm">{error}</p>}

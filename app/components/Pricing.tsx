@@ -42,14 +42,14 @@ export default function Pricing() {
               </tr>
 
               <tr>
-                <th className="bg-white/[0.02] w-52 px-5 py-5 text-left text-amber-600 text-sm font-normal border-b border-white/[0.06]" />
+                <th className="bg-white/[0.02] w-52 px-5 py-5 text-left text-amber-300 text-sm font-normal border-b border-white/[0.06]" />
                 {tiers.map((tier) => (
                   <th key={`price-${tier.name}`} className={`px-4 py-5 text-center border-b border-white/[0.06] ${tier.highlight ? "bg-gradient-to-b from-amber-600/15 to-amber-600/5" : "bg-white/[0.02]"}`}>
                     <p className="font-black text-lg text-amber-300 mb-1">{tier.name}</p>
                     {tier.isCustom ? (
                       <>
-                        <p className="text-xl font-bold text-amber-500 mb-1">{tier.price}</p>
-                        <p className="text-sm text-amber-600 mb-4">Specifiek op jouw bedrijf afgestemd</p>
+                        <p className="text-xl font-bold text-amber-300 mb-1">{tier.price}</p>
+                        <p className="text-sm text-amber-300 mb-4">Specifiek op jouw bedrijf afgestemd</p>
                       </>
                     ) : (
                       <p className={`text-4xl font-black mb-4 ${tier.highlight ? "text-amber-300" : "text-amber-300"}`}>
@@ -58,7 +58,7 @@ export default function Pricing() {
                     )}
                     <a href="#contact" className={`inline-block w-full text-center text-base font-bold py-2.5 rounded-xl transition-all whitespace-nowrap ${
                       tier.isCustom
-                        ? "bg-white/[0.05] text-amber-500 border border-amber-500/20 hover:bg-white/[0.09]"
+                        ? "bg-white/[0.05] text-amber-300 border border-amber-500/20 hover:bg-white/[0.09]"
                         : tier.highlight
                         ? "bg-amber-500 text-slate-900 hover:bg-amber-400 shadow-lg shadow-amber-500/25"
                         : "bg-white/[0.07] text-amber-300 border border-white/[0.1] hover:bg-white/[0.12]"
@@ -85,7 +85,7 @@ export default function Pricing() {
           </table>
         </LiquidCard>
 
-        <p className="text-center text-amber-600 text-base mt-6">{maintenance}</p>
+        <p className="text-center text-amber-300 text-base mt-6">{maintenance}</p>
       </div>
     </section>
   );

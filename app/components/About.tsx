@@ -25,7 +25,7 @@ export default function About() {
                     </div>
                   </div>
                   <p className="text-amber-300 font-bold text-xl">Mo</p>
-                  <p className="text-amber-500 text-base">Mo Pro Max</p>
+                  <p className="text-amber-300 text-base">Mo Pro Max</p>
                 </div>
               </div>
             </LiquidCard>
@@ -45,7 +45,7 @@ export default function About() {
               }}
             >
               <p className="text-2xl font-black text-amber-300">48u</p>
-              <p className="text-amber-500 text-sm font-medium">Live</p>
+              <p className="text-amber-300 text-sm font-medium">Live</p>
             </div>
           </div>
         </FadeIn>

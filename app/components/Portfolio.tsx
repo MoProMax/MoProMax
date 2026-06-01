@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { useLang } from "@/app/context/LanguageContext";
 import { FadeIn } from "./FadeIn";
 import LiquidCard from "./LiquidCard";
-import type { PortfolioItem } from "@/app/lib/firestore";
+import { getPortfolioItems, PortfolioItem } from "@/app/lib/firestore";
 
 const ACCENT_COLORS = ["245,158,11", "236,72,153", "251,191,36", "99,102,241", "16,185,129", "239,68,68"];
 const PER_PAGE = 6;
@@ -22,21 +22,10 @@ export default function Portfolio() {
   const dragDelta     = useRef(0);
 
   useEffect(() => {
-    // Firebase wordt pas ná de eerste paint geladen (apart chunk), in parallel —
-    // de pagina is meteen zichtbaar terwijl de portfolio-data op de achtergrond binnenkomt.
-    let cancelled = false;
-    (async () => {
-      try {
-        const { getPortfolioItems } = await import("@/app/lib/firestore");
-        const all = await getPortfolioItems();
-        if (!cancelled) setItems(all.filter(i => i.visible));
-      } catch {
-        if (!cancelled) setItems([]);
-      } finally {
-        if (!cancelled) setLoading(false);
-      }
-    })();
-    return () => { cancelled = true; };
+    getPortfolioItems()
+      .then(all => setItems(all.filter(i => i.visible)))
+      .catch(() => setItems([]))
+      .finally(() => setLoading(false));
   }, []);
 
   const totalPages   = Math.ceil(items.length / PER_PAGE);

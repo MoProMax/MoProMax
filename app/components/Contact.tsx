@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useLang } from "@/app/context/LanguageContext";
 import LiquidCard from "./LiquidCard";
-import { saveContactMessage } from "@/app/lib/firestore";
+// Firebase (firestore) wordt dynamisch geladen bij het verzenden — niet in de initiële bundel.
 
 export default function Contact() {
   const { t } = useLang();
@@ -17,6 +17,7 @@ export default function Contact() {
     setLoading(true);
     setError("");
     try {
+      const { saveContactMessage } = await import("@/app/lib/firestore");
       await saveContactMessage({
         name:    form.name,
         email:   form.email,

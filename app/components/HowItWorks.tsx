@@ -32,7 +32,7 @@ export default function HowItWorks() {
 
       <Statement minH="min-h-[58vh]" eyebrow="Hoe het werkt"
         sub="Drie stappen. Geen wachten. Geen gedoe.">
-        Van gesprek naar live.<br /><span className="text-amber-400">In 48 uur.</span>
+        Van gesprek naar live.<br /><span className="text-amber-300">In 48 uur.</span>
       </Statement>
 
       <div className="max-w-[1600px] mx-auto px-6 pb-28">
@@ -53,10 +53,10 @@ export default function HowItWorks() {
 
                 {/* card */}
                 <GlassCard className="flex-1 w-full p-6 flex flex-col">
-                  <h3 className="text-amber-400 font-black text-xl sm:text-2xl leading-tight mb-3">{s.title}</h3>
-                  <p className="text-amber-400/60 text-base leading-relaxed">{s.body}</p>
+                  <h3 className="text-amber-300 font-black text-xl sm:text-2xl leading-tight mb-3">{s.title}</h3>
+                  <p className="text-amber-300/90 text-base leading-relaxed">{s.body}</p>
                   {/* desktop-only deepening */}
-                  <p className="hidden md:block text-amber-400/40 text-[15px] leading-relaxed mt-3">{s.detail}</p>
+                  <p className="hidden md:block text-amber-300/90 text-[15px] leading-relaxed mt-3">{s.detail}</p>
                   {/* guarantee badge — pinned to bottom */}
                   <div className="mt-auto pt-5">
                     <div className="inline-flex items-center gap-2 bg-emerald-500/10 border border-emerald-400/25 rounded-full px-4 py-2">

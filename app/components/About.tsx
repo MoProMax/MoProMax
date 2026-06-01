@@ -24,7 +24,7 @@ export default function About() {
                       M
                     </div>
                   </div>
-                  <p className="text-amber-400 font-bold text-xl">Mo</p>
+                  <p className="text-amber-300 font-bold text-xl">Mo</p>
                   <p className="text-amber-500 text-base">Mo Pro Max</p>
                 </div>
               </div>
@@ -44,7 +44,7 @@ export default function About() {
                 boxShadow: "0 2px 8px rgba(0,0,0,0.15), 0 8px 24px rgba(0,0,0,0.30)",
               }}
             >
-              <p className="text-2xl font-black text-amber-400">48u</p>
+              <p className="text-2xl font-black text-amber-300">48u</p>
               <p className="text-amber-500 text-sm font-medium">Live</p>
             </div>
           </div>
@@ -53,7 +53,7 @@ export default function About() {
         {/* RIGHT — het nieuwe persoonlijke verhaal */}
         <FadeIn direction="right" delay={0.12}>
           <div>
-            <p className="text-amber-400 font-semibold text-sm uppercase tracking-[0.2em] mb-6">
+            <p className="text-amber-300 font-semibold text-sm uppercase tracking-[0.2em] mb-6">
               {t.about.headline}
             </p>
 
@@ -62,8 +62,8 @@ export default function About() {
                 key={i}
                 className={
                   i === 0
-                    ? "text-amber-400 font-bold text-2xl sm:text-3xl leading-snug tracking-tight mb-6"
-                    : "text-amber-400/55 text-lg leading-relaxed mb-4"
+                    ? "text-amber-300 font-bold text-2xl sm:text-3xl leading-snug tracking-tight mb-6"
+                    : "text-amber-300/90 text-lg leading-relaxed mb-4"
                 }
               >
                 {paragraph}

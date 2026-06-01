@@ -66,8 +66,8 @@ export default function Portfolio() {
     <section id="portfolio" className="py-24 px-6 relative overflow-hidden">
       <div className="relative max-w-[1600px] mx-auto">
         <FadeIn className="text-center mb-16">
-          <p className="text-amber-400 font-semibold text-base uppercase tracking-widest mb-3">{t.portfolio.headline}</p>
-          <h2 className="text-4xl sm:text-5xl font-black text-amber-400">{t.portfolio.subline}</h2>
+          <p className="text-amber-300 font-semibold text-base uppercase tracking-widest mb-3">{t.portfolio.headline}</p>
+          <h2 className="text-4xl sm:text-5xl font-black text-amber-300">{t.portfolio.subline}</h2>
         </FadeIn>
 
         {/* Loading skeletons */}
@@ -81,7 +81,7 @@ export default function Portfolio() {
 
         {/* Empty state */}
         {!loading && items.length === 0 && (
-          <p className="text-center text-amber-400/40 py-12">Binnenkort meer werk te zien.</p>
+          <p className="text-center text-amber-300/90 py-12">Binnenkort meer werk te zien.</p>
         )}
 
         {/* Carousel */}
@@ -116,7 +116,7 @@ export default function Portfolio() {
                         <span className="w-2 h-2 rounded-full bg-yellow-400/70" />
                         <span className="w-2 h-2 rounded-full bg-green-400/70" />
                         <div className="ml-2 flex-1 h-3 bg-white/10 rounded-sm flex items-center px-2">
-                          <span className="text-amber-400/30 text-[8px] truncate">{item.liveUrl || "example.com"}</span>
+                          <span className="text-amber-300/90 text-[8px] truncate">{item.liveUrl || "example.com"}</span>
                         </div>
                       </div>
 
@@ -129,7 +129,7 @@ export default function Portfolio() {
                         />
                       ) : (
                         <div className="absolute inset-0 flex items-center justify-center">
-                          <div className="w-14 h-14 rounded-2xl bg-white/15 backdrop-blur-sm flex items-center justify-center text-2xl font-black text-amber-400 border border-white/20">
+                          <div className="w-14 h-14 rounded-2xl bg-white/15 backdrop-blur-sm flex items-center justify-center text-2xl font-black text-amber-300 border border-white/20">
                             {item.title.charAt(0)}
                           </div>
                         </div>
@@ -137,7 +137,7 @@ export default function Portfolio() {
 
                       {/* Hover overlay */}
                       <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300 flex items-center justify-center z-20">
-                        <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white/10 backdrop-blur-sm border border-white/20 text-amber-400 text-xs font-bold px-4 py-2 rounded-full">
+                        <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white/10 backdrop-blur-sm border border-white/20 text-amber-300 text-xs font-bold px-4 py-2 rounded-full">
                           Bekijk website ↗
                         </span>
                       </div>
@@ -145,8 +145,8 @@ export default function Portfolio() {
 
                     {/* Card body */}
                     <div className="p-5">
-                      <p className="text-amber-400 text-xs font-semibold uppercase tracking-wider mb-1">{item.category}</p>
-                      <h3 className="text-amber-400 font-black text-lg mb-2">{item.title}</h3>
+                      <p className="text-amber-300 text-xs font-semibold uppercase tracking-wider mb-1">{item.category}</p>
+                      <h3 className="text-amber-300 font-black text-lg mb-2">{item.title}</h3>
                       <div className="flex items-start gap-2">
                         <span className="block w-1 h-1 rounded-full bg-amber-400 flex-shrink-0 mt-2" />
                         <p className="text-amber-300 text-sm leading-relaxed">{item.result}</p>
@@ -164,7 +164,7 @@ export default function Portfolio() {
                 <button
                   onClick={prev}
                   disabled={page === 0}
-                  className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-amber-400/60 hover:text-amber-400 hover:bg-white/10 disabled:opacity-30 disabled:cursor-not-allowed transition-all"
+                  className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-amber-300/90 hover:text-amber-300 hover:bg-white/10 disabled:opacity-30 disabled:cursor-not-allowed transition-all"
                 >
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
@@ -190,7 +190,7 @@ export default function Portfolio() {
                 <button
                   onClick={next}
                   disabled={page === totalPages - 1}
-                  className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-amber-400/60 hover:text-amber-400 hover:bg-white/10 disabled:opacity-30 disabled:cursor-not-allowed transition-all"
+                  className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-amber-300/90 hover:text-amber-300 hover:bg-white/10 disabled:opacity-30 disabled:cursor-not-allowed transition-all"
                 >
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />

@@ -2,118 +2,109 @@
 
 import { useEffect, useRef } from "react";
 
+const LINES = [
+  // primary — purple-white
+  ...Array.from({ length: 22 }, (_, i) => ({
+    baseY:   i * 46 - 20,
+    amp1:    25 + (i % 4) * 7,
+    amp2:    12 + (i % 3) * 5,
+    freq1:   0.0016 + i * 0.00018,
+    freq2:   0.0032 + i * 0.00012,
+    speed1:  0.28 + i * 0.03,
+    speed2:  0.52 + i * 0.02,
+    opacity: 0.13 + (i % 4) * 0.032,
+    width:   0.6  + (i % 3) * 0.3,
+    rgb:     "220,200,255",
+  })),
+  // secondary — softer violet
+  ...Array.from({ length: 18 }, (_, i) => ({
+    baseY:   i * 54 - 40,
+    amp1:    18 + (i % 3) * 8,
+    amp2:    9  + (i % 4) * 4,
+    freq1:   0.002  + i * 0.00015,
+    freq2:   0.0038 + i * 0.00014,
+    speed1:  0.42 + i * 0.025,
+    speed2:  0.7  + i * 0.018,
+    opacity: 0.08 + (i % 3) * 0.022,
+    width:   0.5  + (i % 2) * 0.25,
+    rgb:     "200,175,255",
+  })),
+];
+
+const PTS = 48;   // control-point density — higher = smoother curves
+const X0  = -120;
+const X1  = 1560; // wider than viewBox to avoid edge clipping
+
+function smoothPath(pts: [number, number][]): string {
+  let d = `M${pts[0][0].toFixed(2)},${pts[0][1].toFixed(2)}`;
+  for (let i = 1; i < pts.length; i++) {
+    const p0 = pts[Math.max(0, i - 2)];
+    const p1 = pts[i - 1];
+    const p2 = pts[i];
+    const p3 = pts[Math.min(pts.length - 1, i + 1)];
+    // Catmull-Rom → cubic Bezier
+    const cp1x = p1[0] + (p2[0] - p0[0]) / 6;
+    const cp1y = p1[1] + (p2[1] - p0[1]) / 6;
+    const cp2x = p2[0] - (p3[0] - p1[0]) / 6;
+    const cp2y = p2[1] - (p3[1] - p1[1]) / 6;
+    d += `C${cp1x.toFixed(2)},${cp1y.toFixed(2)},${cp2x.toFixed(2)},${cp2y.toFixed(2)},${p2[0].toFixed(2)},${p2[1].toFixed(2)}`;
+  }
+  return d;
+}
+
 function FlowLines() {
-  const off1  = useRef<SVGFEOffsetElement>(null);
-  const off2  = useRef<SVGFEOffsetElement>(null);
-  const disp1 = useRef<SVGFEDisplacementMapElement>(null);
-  const disp2 = useRef<SVGFEDisplacementMapElement>(null);
+  const svgRef = useRef<SVGSVGElement>(null);
 
   useEffect(() => {
-    let raf: number;
+    const svg = svgRef.current;
+    if (!svg) return;
+
+    const pathEls = LINES.map((cfg) => {
+      const el = document.createElementNS("http://www.w3.org/2000/svg", "path");
+      el.setAttribute("fill", "none");
+      el.setAttribute("stroke", `rgba(${cfg.rgb},${cfg.opacity})`);
+      el.setAttribute("stroke-width", String(cfg.width));
+      el.setAttribute("stroke-linecap", "round");
+      svg.appendChild(el);
+      return el;
+    });
+
+    const step = (X1 - X0) / (PTS - 1);
     let t = 0;
+    let raf: number;
 
     const tick = () => {
-      // Lissajous motion — irrational frequency ratios → never exactly repeats
-      // Layer 1: slow, wide, all-directional
-      const dx1 = Math.sin(t)          * 180 + Math.sin(t * 0.41) * 60;
-      const dy1 = Math.cos(t * 0.63)   * 150 + Math.cos(t * 1.17) * 40;
-      const s1  = 65 + Math.sin(t * 0.77) * 15;
-
-      // Layer 2: different frequencies + phase offset
-      const dx2 = Math.cos(t * 0.79)   * 130 + Math.sin(t * 1.31) * 40;
-      const dy2 = Math.sin(t * 1.07)   * 110 + Math.cos(t * 0.53) * 50;
-      const s2  = 48 + Math.cos(t * 0.61) * 12;
-
-      off1.current?.setAttribute("dx",    dx1.toFixed(3));
-      off1.current?.setAttribute("dy",    dy1.toFixed(3));
-      disp1.current?.setAttribute("scale", s1.toFixed(3));
-
-      off2.current?.setAttribute("dx",    dx2.toFixed(3));
-      off2.current?.setAttribute("dy",    dy2.toFixed(3));
-      disp2.current?.setAttribute("scale", s2.toFixed(3));
-
-      t += 0.0018; // very slow — smoother, one full cycle ≈ 1 hour
+      LINES.forEach((cfg, li) => {
+        const pts: [number, number][] = [];
+        for (let p = 0; p < PTS; p++) {
+          const x = X0 + p * step;
+          const y =
+            cfg.baseY +
+            Math.sin(x * cfg.freq1 + t * cfg.speed1) * cfg.amp1 +
+            Math.sin(x * cfg.freq2 + t * cfg.speed2 + li * 0.7) * cfg.amp2;
+          pts.push([x, y]);
+        }
+        pathEls[li].setAttribute("d", smoothPath(pts));
+      });
+      t += 0.007;
       raf = requestAnimationFrame(tick);
     };
 
     raf = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(raf);
+    return () => {
+      cancelAnimationFrame(raf);
+      pathEls.forEach((el) => el.remove());
+    };
   }, []);
-
-  const primary   = Array.from({ length: 22 }, (_, i) => i * 46 - 20);
-  const secondary = Array.from({ length: 18 }, (_, i) => i * 54 - 40);
 
   return (
     <svg
+      ref={svgRef}
       className="absolute inset-0 w-full h-full"
       xmlns="http://www.w3.org/2000/svg"
       preserveAspectRatio="xMidYMid slice"
       viewBox="0 0 1440 960"
-    >
-      <defs>
-        <filter id="warp-a" x="-60%" y="-60%" width="220%" height="220%">
-          <feTurbulence
-            type="turbulence"
-            baseFrequency="0.004 0.012"
-            numOctaves="4"
-            seed="3"
-            result="noise-a"
-          />
-          <feOffset ref={off1} in="noise-a" dx="0" dy="0" result="shifted-a" />
-          <feDisplacementMap
-            ref={disp1}
-            in="SourceGraphic"
-            in2="shifted-a"
-            scale="75"
-            xChannelSelector="R"
-            yChannelSelector="G"
-          />
-        </filter>
-
-        <filter id="warp-b" x="-60%" y="-60%" width="220%" height="220%">
-          <feTurbulence
-            type="turbulence"
-            baseFrequency="0.006 0.016"
-            numOctaves="3"
-            seed="7"
-            result="noise-b"
-          />
-          <feOffset ref={off2} in="noise-b" dx="0" dy="0" result="shifted-b" />
-          <feDisplacementMap
-            ref={disp2}
-            in="SourceGraphic"
-            in2="shifted-b"
-            scale="55"
-            xChannelSelector="G"
-            yChannelSelector="R"
-          />
-        </filter>
-      </defs>
-
-      <g filter="url(#warp-a)">
-        {primary.map((y, i) => (
-          <line
-            key={`p${i}`}
-            x1="-600" y1={y} x2="2200" y2={y}
-            stroke={`rgba(220,200,255,${0.14 + (i % 4) * 0.035})`}
-            strokeWidth={0.6 + (i % 3) * 0.3}
-            strokeLinecap="round"
-          />
-        ))}
-      </g>
-
-      <g filter="url(#warp-b)">
-        {secondary.map((y, i) => (
-          <line
-            key={`s${i}`}
-            x1="-600" y1={y} x2="2200" y2={y}
-            stroke={`rgba(200,175,255,${0.09 + (i % 3) * 0.025})`}
-            strokeWidth={0.5 + (i % 2) * 0.25}
-            strokeLinecap="round"
-          />
-        ))}
-      </g>
-    </svg>
+    />
   );
 }
 

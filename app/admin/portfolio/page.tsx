@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { getPortfolioItems, addPortfolioItem, updatePortfolioItem, deletePortfolioItem, PortfolioItem } from "@/app/lib/firestore";
+import { getPortfolioItems, addPortfolioItem, updatePortfolioItem, deletePortfolioItem, getSiteSettings, setPortfolioVisible, PortfolioItem } from "@/app/lib/firestore";
 
 const COLOR_OPTIONS = [
   { label: "Amber",  value: "from-amber-900 to-amber-700" },
@@ -23,9 +23,23 @@ export default function PortfolioPage() {
   const [editing, setEditing] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
   const [saving,  setSaving]  = useState(false);
+  const [sectionVisible,   setSectionVisible]   = useState(true);
+  const [togglingSection,  setTogglingSection]  = useState(false);
 
   const load = async () => { setLoading(true); setItems(await getPortfolioItems()); setLoading(false); };
   useEffect(() => { load(); }, []);
+  useEffect(() => { getSiteSettings().then(s => setSectionVisible(s.portfolioVisible)).catch(() => {}); }, []);
+
+  const toggleSection = async () => {
+    setTogglingSection(true);
+    const next = !sectionVisible;
+    try {
+      await setPortfolioVisible(next);
+      setSectionVisible(next);
+    } finally {
+      setTogglingSection(false);
+    }
+  };
 
   const seedDummies = async () => {
     if (!confirm("10 voorbeeldprojecten toevoegen?")) return;
@@ -92,6 +106,25 @@ export default function PortfolioPage() {
         <button onClick={seedDummies} disabled={saving}
           className="px-4 py-2 rounded-lg bg-white/5 border border-white/10 hover:bg-white/10 text-white/60 hover:text-white text-xs font-semibold transition-colors disabled:opacity-50">
           + 10 voorbeelden toevoegen
+        </button>
+      </div>
+
+      {/* Master switch — hide/show the entire Portfolio section on the public website */}
+      <div className={`mb-8 rounded-2xl border p-5 flex items-center justify-between gap-4 ${sectionVisible ? "bg-green-500/10 border-green-500/30" : "bg-amber-500/10 border-amber-500/30"}`}>
+        <div className="min-w-0">
+          <div className="flex items-center gap-2 mb-1">
+            <span className={`w-2.5 h-2.5 rounded-full shrink-0 ${sectionVisible ? "bg-green-400" : "bg-amber-400"}`} />
+            <p className="font-bold text-white">Portfolio-sectie op de website</p>
+          </div>
+          <p className="text-sm text-white/50">
+            {sectionVisible
+              ? "De hele portfolio-sectie is nu zichtbaar voor bezoekers."
+              : "De hele portfolio-sectie is verborgen — bezoekers zien hem niet."}
+          </p>
+        </div>
+        <button onClick={toggleSection} disabled={togglingSection}
+          className={`shrink-0 px-5 py-2.5 rounded-xl font-bold text-white text-sm transition-colors disabled:opacity-50 ${sectionVisible ? "bg-red-600/80 hover:bg-red-600" : "bg-green-600 hover:bg-green-500"}`}>
+          {togglingSection ? "Bezig…" : sectionVisible ? "Verberg hele portfolio" : "Toon hele portfolio"}
         </button>
       </div>
 

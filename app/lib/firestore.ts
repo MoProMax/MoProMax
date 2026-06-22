@@ -2,6 +2,7 @@ import {
   collection,
   addDoc,
   getDocs,
+  getDoc,
   doc,
   updateDoc,
   deleteDoc,
@@ -59,6 +60,10 @@ export interface AvailabilitySlot {
   date: string;       // "YYYY-MM-DD"
   times: string[];    // ["09:00","10:00",...]
   blocked: boolean;
+}
+
+export interface SiteSettings {
+  portfolioVisible: boolean;   // master switch for the whole Portfolio section on the public site
 }
 
 // ─── Contact messages ─────────────────────────────────────────────────────────
@@ -150,4 +155,17 @@ export async function getAvailabilityForDate(date: string): Promise<Availability
   const snap = await getDocs(query(collection(db, "availability")));
   const found = snap.docs.find(d => d.id === date);
   return found ? { id: found.id, ...found.data() } as AvailabilitySlot : null;
+}
+
+// ─── Site settings ────────────────────────────────────────────────────────────
+
+export async function getSiteSettings(): Promise<SiteSettings> {
+  const snap = await getDoc(doc(db, "settings", "site"));
+  const data = snap.exists() ? (snap.data() as Partial<SiteSettings>) : {};
+  // default: visible — preserves existing behaviour when nothing is set yet
+  return { portfolioVisible: data.portfolioVisible ?? true };
+}
+
+export async function setPortfolioVisible(visible: boolean) {
+  return setDoc(doc(db, "settings", "site"), { portfolioVisible: visible }, { merge: true });
 }

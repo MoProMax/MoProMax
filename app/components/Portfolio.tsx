@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { useLang } from "@/app/context/LanguageContext";
 import { FadeIn } from "./FadeIn";
 import LiquidCard from "./LiquidCard";
-import { getPortfolioItems, PortfolioItem } from "@/app/lib/firestore";
+import { getPortfolioItems, getSiteSettings, PortfolioItem } from "@/app/lib/firestore";
 
 const ACCENT_COLORS = ["245,158,11", "236,72,153", "251,191,36", "99,102,241", "16,185,129", "239,68,68"];
 const PER_PAGE = 6;
@@ -14,6 +14,7 @@ export default function Portfolio() {
   const [items,   setItems]   = useState<PortfolioItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [page,    setPage]    = useState(0);
+  const [sectionVisible, setSectionVisible] = useState(true);
 
   // Touch + pointer drag tracking
   const touchStartX  = useRef(0);
@@ -22,8 +23,11 @@ export default function Portfolio() {
   const dragDelta     = useRef(0);
 
   useEffect(() => {
-    getPortfolioItems()
-      .then(all => setItems(all.filter(i => i.visible)))
+    Promise.all([getPortfolioItems(), getSiteSettings()])
+      .then(([all, settings]) => {
+        setSectionVisible(settings.portfolioVisible);
+        setItems(all.filter(i => i.visible));
+      })
       .catch(() => setItems([]))
       .finally(() => setLoading(false));
   }, []);
@@ -61,6 +65,9 @@ export default function Portfolio() {
     const dx = e.clientX - pointerStartX.current;
     if (Math.abs(dx) > 50) dx < 0 ? next() : prev();
   };
+
+  // Master switch off → hide the whole section for visitors
+  if (!loading && !sectionVisible) return null;
 
   return (
     <section id="portfolio" className="py-24 px-6 relative overflow-hidden">

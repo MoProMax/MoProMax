@@ -124,15 +124,6 @@ export default function Automate() {
   return (
     <section className="relative overflow-hidden">
 
-      <Statement
-        eyebrow="Het is dinsdagochtend"
-        sub="Terwijl jij sliep, werkte je website door. Geen telefoon, geen gedoe. Zo voelt een site die écht werkt."
-        detail="Je bent net wakker, koffie in de hand. Je checkt je telefoon en ziet vijf nieuwe afspraken — gisteravond binnengekomen, terwijl jij sliep. Niemand hoefde te bellen, niemand hoefde te wachten tot maandag. Ze wilden iets, en je website regelde het."
-      >
-        Je wordt wakker.<br />Er zijn al vijf afspraken<br />
-        <span className="text-amber-300">ingeboekt.</span>
-      </Statement>
-
       {/* DOEL 1 · nieuwe klanten winnen — chatbot + live chat + boeking */}
       <Moment
         eyebrow="Nieuwe klanten winnen"

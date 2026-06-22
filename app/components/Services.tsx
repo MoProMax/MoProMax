@@ -1,7 +1,6 @@
 "use client";
 
 import { GlassCard, Moment, Statement } from "./cinematic";
-import BookCallButton from "./BookCallButton";
 
 /* ════════════ SERVICE VISUALS — interface mockups ════════════ */
 
@@ -163,12 +162,6 @@ export default function Services() {
         features={["Google Business instellen & optimaliseren", "Zichtbaarheid op Google Maps", "Hogere zoekposities", "Review-strategie", "3 maanden rapportage"]}
         visual={<RankingVisual />}
       />
-
-      <Statement minH="min-h-[64vh]"
-        sub="Los, of als compleet pakket — afgestemd op wat jouw bedrijf nodig heeft."
-        cta={<BookCallButton size="lg" label="Bespreek jouw project" />}>
-        Samen <span className="text-amber-300">jouw set</span> samenstellen.
-      </Statement>
 
     </section>
   );

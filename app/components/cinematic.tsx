@@ -94,6 +94,25 @@ export function Moment({
                 <span key={i} className="block">{sentence}</span>
               ))}
             </p>
+            {detail && (
+              <p className="mt-4 text-base text-amber-300/90 leading-relaxed">
+                {detail.split(/(?<=\.)\s+/).map((sentence, i) => (
+                  <span key={i} className="block">{sentence}</span>
+                ))}
+              </p>
+            )}
+            {features && features.length > 0 && (
+              <ul className="mt-5 space-y-2.5">
+                {features.map((f) => (
+                  <li key={f} className="flex items-start gap-3 text-amber-300/90 text-sm">
+                    <svg className="w-5 h-5 mt-0.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke={check} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M20 6 9 17l-5-5" />
+                    </svg>
+                    <span>{f}</span>
+                  </li>
+                ))}
+              </ul>
+            )}
           </div>
         </div>
       </Reveal>

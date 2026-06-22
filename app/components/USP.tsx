@@ -105,65 +105,67 @@ export default function USP() {
         Wat ons écht<br /><span className="text-amber-300">anders maakt.</span>
       </Statement>
 
-      <Moment
-        eyebrow="De aanpak"
-        glow="251,191,36" eyebrowClass="text-amber-300"
-        title={<>Wij leren je kennen<br />vóór de eerste pixel.</>}
-        line="De meeste bureaus plakken een template en noemen het maatwerk. Wij beginnen met een gesprek — en bouwen pas als we écht begrijpen wie jij bent en wat jouw klanten zoeken."
-        detail="Wie zijn jouw klanten? Wat maakt jou anders dan de zaak verderop? Waarom zouden mensen voor jóu kiezen? Dat zijn de vragen die wij stellen vóór we ontwerpen — want een website die jouw verhaal niet kent, kan het ook niet vertellen."
-        features={[
-          "Persoonlijk kennismakingsgesprek vooraf",
-          "Wij verdiepen ons eerst in jouw klanten",
-          "Geen template — gebouwd rond jouw verhaal",
-          "Originele teksten in jouw eigen stem",
-        ]}
-        visual={<IntakeVisual />}
-      />
+      <div className="max-w-[1600px] mx-auto w-full px-6 py-12 grid md:grid-cols-2 gap-x-12 gap-y-10 items-stretch">
+        <Moment grid
+          eyebrow="De aanpak"
+          glow="251,191,36" eyebrowClass="text-amber-300"
+          title={<>Wij leren je kennen<br />vóór de eerste pixel.</>}
+          line="De meeste bureaus plakken een template en noemen het maatwerk. Wij beginnen met een gesprek — en bouwen pas als we écht begrijpen wie jij bent en wat jouw klanten zoeken."
+          detail="Wie zijn jouw klanten? Wat maakt jou anders dan de zaak verderop? Waarom zouden mensen voor jóu kiezen? Dat zijn de vragen die wij stellen vóór we ontwerpen — want een website die jouw verhaal niet kent, kan het ook niet vertellen."
+          features={[
+            "Persoonlijk kennismakingsgesprek vooraf",
+            "Wij verdiepen ons eerst in jouw klanten",
+            "Geen template — gebouwd rond jouw verhaal",
+            "Originele teksten in jouw eigen stem",
+          ]}
+          visual={<IntakeVisual />}
+        />
 
-      <Moment flip
-        eyebrow="De garantie"
-        glow="52,211,153" eyebrowClass="text-amber-300"
-        title={<>48 uur.<br />Of je geld terug.</>}
-        line="Geen streefdoel. Een garantie. Als jouw site er niet binnen 48 uur staat, krijg je je geld terug. Zonder uitzondering, zonder kleine lettertjes."
-        detail="Andere bureaus doen er 6 tot 12 weken over. Wij leveren binnen twee dagen na het gesprek — en we durven er onze vergoeding op te zetten. Staat je site er niet op tijd? Dan krijg je je geld terug."
-        features={[
-          "Live binnen 48 uur na het gesprek",
-          "Geld terug als we het niet halen",
-          "Geen kleine lettertjes, geen uitzonderingen",
-          "Geen weken- of maandenlang wachten",
-        ]}
-        visual={<GuaranteeVisual />}
-      />
+        <Moment grid
+          eyebrow="De garantie"
+          glow="52,211,153" eyebrowClass="text-amber-300"
+          title={<>48 uur.<br />Of je geld terug.</>}
+          line="Geen streefdoel. Een garantie. Als jouw site er niet binnen 48 uur staat, krijg je je geld terug. Zonder uitzondering, zonder kleine lettertjes."
+          detail="Andere bureaus doen er 6 tot 12 weken over. Wij leveren binnen twee dagen na het gesprek — en we durven er onze vergoeding op te zetten. Staat je site er niet op tijd? Dan krijg je je geld terug."
+          features={[
+            "Live binnen 48 uur na het gesprek",
+            "Geld terug als we het niet halen",
+            "Geen kleine lettertjes, geen uitzonderingen",
+            "Geen weken- of maandenlang wachten",
+          ]}
+          visual={<GuaranteeVisual />}
+        />
 
-      <Moment
-        eyebrow="Het contact"
-        glow="56,189,248" eyebrowClass="text-amber-300" check="#34d399"
-        title={<>Jij belt.<br />Wij nemen op.</>}
-        line="Geen ticketsysteem. Geen wachtrij. Direct contact met degene die jouw site gebouwd heeft — en jouw bedrijf bij naam kent."
-        detail="Geen callcenter, geen anonieme helpdesk, geen 'uw bericht is belangrijk voor ons'. Je spreekt direct met de persoon die jouw website bouwde en jouw bedrijf kent. Eén aanspreekpunt, altijd."
-        features={[
-          "Direct contact, geen tussenlagen",
-          "Eén vast aanspreekpunt",
-          "Reactie binnen 2 uur",
-          "Iemand die jouw bedrijf bij naam kent",
-        ]}
-        visual={<DirectContactVisual />}
-      />
+        <Moment grid
+          eyebrow="Het contact"
+          glow="56,189,248" eyebrowClass="text-amber-300" check="#34d399"
+          title={<>Jij belt.<br />Wij nemen op.</>}
+          line="Geen ticketsysteem. Geen wachtrij. Direct contact met degene die jouw site gebouwd heeft — en jouw bedrijf bij naam kent."
+          detail="Geen callcenter, geen anonieme helpdesk, geen 'uw bericht is belangrijk voor ons'. Je spreekt direct met de persoon die jouw website bouwde en jouw bedrijf kent. Eén aanspreekpunt, altijd."
+          features={[
+            "Direct contact, geen tussenlagen",
+            "Eén vast aanspreekpunt",
+            "Reactie binnen 2 uur",
+            "Iemand die jouw bedrijf bij naam kent",
+          ]}
+          visual={<DirectContactVisual />}
+        />
 
-      <Moment flip
-        eyebrow="De nazorg"
-        glow="251,191,36" eyebrowClass="text-amber-300"
-        title={<>Wij zijn er nog<br />zes maanden later.</>}
-        line="Maandelijkse check-in. Altijd bereikbaar. We behandelen jouw bedrijf alsof het ons eigen is — want jouw succes is de enige recensie die telt."
-        detail="De grootste klacht over bureaus? Ze verdwijnen zodra de factuur betaald is. Wij niet. We sturen elke maand een check-in, denken mee over verbeteringen en zijn er als je iets nodig hebt. Jouw succes is onze beste reclame."
-        features={[
-          "Maandelijkse check-in",
-          "Altijd bereikbaar na de lancering",
-          "We denken mee over jouw groei",
-          "We verdwijnen niet na de factuur",
-        ]}
-        visual={<CheckinVisual />}
-      />
+        <Moment grid
+          eyebrow="De nazorg"
+          glow="251,191,36" eyebrowClass="text-amber-300"
+          title={<>Wij zijn er nog<br />zes maanden later.</>}
+          line="Maandelijkse check-in. Altijd bereikbaar. We behandelen jouw bedrijf alsof het ons eigen is — want jouw succes is de enige recensie die telt."
+          detail="De grootste klacht over bureaus? Ze verdwijnen zodra de factuur betaald is. Wij niet. We sturen elke maand een check-in, denken mee over verbeteringen en zijn er als je iets nodig hebt. Jouw succes is onze beste reclame."
+          features={[
+            "Maandelijkse check-in",
+            "Altijd bereikbaar na de lancering",
+            "We denken mee over jouw groei",
+            "We verdwijnen niet na de factuur",
+          ]}
+          visual={<CheckinVisual />}
+        />
+      </div>
 
     </section>
   );

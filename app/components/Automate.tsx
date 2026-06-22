@@ -124,69 +124,71 @@ export default function Automate() {
   return (
     <section className="relative overflow-hidden">
 
-      {/* DOEL 1 · nieuwe klanten winnen — chatbot + live chat + boeking */}
-      <Moment
-        eyebrow="Nieuwe klanten winnen"
-        glow="251,191,36" eyebrowClass="text-amber-300"
-        title={<>Het wint klanten,<br />terwijl jij werkt.</>}
-        line="Een bezoeker met een vraag wordt te woord gestaan, over de streep getrokken én vastgelegd — zonder dat jij iets hoeft te doen."
-        detail="De chatbot beantwoordt de eerste vraag, live chat vangt de twijfel op precies het beslismoment, en het boekingssysteem zet de afspraak vast. Van vreemde naar klant — dag en nacht, terwijl jij met iets anders bezig bent."
-        features={[
-          "Geautomatiseerde chatbot beantwoordt vragen 24/7",
-          "Live chat vangt twijfelaars op het beslismoment",
-          "Boekingssysteem zet de afspraak meteen vast",
-          "Werkt 's nachts, in het weekend, altijd door",
-        ]}
-        visual={<ConvertVisual />}
-      />
+      <div className="max-w-[1600px] mx-auto w-full px-6 py-12 grid md:grid-cols-2 gap-x-12 gap-y-10 items-stretch">
+        {/* DOEL 1 · nieuwe klanten winnen — chatbot + live chat + boeking */}
+        <Moment grid
+          eyebrow="Nieuwe klanten winnen"
+          glow="251,191,36" eyebrowClass="text-amber-300"
+          title={<>Het wint klanten,<br />terwijl jij werkt.</>}
+          line="Een bezoeker met een vraag wordt te woord gestaan, over de streep getrokken én vastgelegd — zonder dat jij iets hoeft te doen."
+          detail="De chatbot beantwoordt de eerste vraag, live chat vangt de twijfel op precies het beslismoment, en het boekingssysteem zet de afspraak vast. Van vreemde naar klant — dag en nacht, terwijl jij met iets anders bezig bent."
+          features={[
+            "Geautomatiseerde chatbot beantwoordt vragen 24/7",
+            "Live chat vangt twijfelaars op het beslismoment",
+            "Boekingssysteem zet de afspraak meteen vast",
+            "Werkt 's nachts, in het weekend, altijd door",
+          ]}
+          visual={<ConvertVisual />}
+        />
 
-      {/* DOEL 2 · omzet — webshop + betalingen */}
-      <Moment flip
-        eyebrow="Verkopen & afrekenen"
-        glow="52,211,153" eyebrowClass="text-amber-300"
-        title={<>Het verkoopt,<br />ook als je dicht bent.</>}
-        line="Producten, diensten, abonnementen of cadeaubonnen — je website verkoopt en incasseert, de klok rond."
-        detail="Afgerekend met iDEAL, creditcard of Apple Pay, precies zoals je klant gewend is. Terwijl jij bij een andere klant zit of slaapt, komt de omzet binnen. Geen kassa, geen gedoe — gewoon verkopen, dag en nacht."
-        features={[
-          "Webshop voor producten, diensten & abonnementen",
-          "Betalen met iDEAL, creditcard & Apple Pay",
-          "Cadeaubonnen die nieuwe klanten binnenhalen",
-          "De kassa draait 24/7, ook als jij weg bent",
-        ]}
-        visual={<CommerceVisual />}
-      />
+        {/* DOEL 2 · omzet — webshop + betalingen */}
+        <Moment grid
+          eyebrow="Verkopen & afrekenen"
+          glow="52,211,153" eyebrowClass="text-amber-300"
+          title={<>Het verkoopt,<br />ook als je dicht bent.</>}
+          line="Producten, diensten, abonnementen of cadeaubonnen — je website verkoopt en incasseert, de klok rond."
+          detail="Afgerekend met iDEAL, creditcard of Apple Pay, precies zoals je klant gewend is. Terwijl jij bij een andere klant zit of slaapt, komt de omzet binnen. Geen kassa, geen gedoe — gewoon verkopen, dag en nacht."
+          features={[
+            "Webshop voor producten, diensten & abonnementen",
+            "Betalen met iDEAL, creditcard & Apple Pay",
+            "Cadeaubonnen die nieuwe klanten binnenhalen",
+            "De kassa draait 24/7, ook als jij weg bent",
+          ]}
+          visual={<CommerceVisual />}
+        />
 
-      {/* DOEL 3 · klanten behouden — portaal + e-mail + reviews */}
-      <Moment
-        eyebrow="Klanten behouden"
-        glow="167,139,250" eyebrowClass="text-amber-300" check="#34d399"
-        title={<>Het maakt van bezoekers<br />vaste klanten.</>}
-        line="Een eigen plek die ze bindt, een mailtje dat ze terughaalt, en reviews die nieuwe klanten overtuigen."
-        detail="In hun eigen vertrouwde omgeving regelen klanten alles zelf — dat bindt. Een goed getimede mail haalt stille klanten terug. En tevreden klanten laten reviews achter die jou hoger in Google zetten. Zo levert elke klant er weer een nieuwe op."
-        features={[
-          "Klantenportaal: een vertrouwde plek die bindt",
-          "E-mailmarketing haalt klanten automatisch terug",
-          "Reviews op Google, Facebook & Trustpilot",
-          "Beter gevonden → meer klanten → meer reviews",
-        ]}
-        visual={<LoyaltyVisual />}
-      />
+        {/* DOEL 3 · klanten behouden — portaal + e-mail + reviews */}
+        <Moment grid
+          eyebrow="Klanten behouden"
+          glow="167,139,250" eyebrowClass="text-amber-300" check="#34d399"
+          title={<>Het maakt van bezoekers<br />vaste klanten.</>}
+          line="Een eigen plek die ze bindt, een mailtje dat ze terughaalt, en reviews die nieuwe klanten overtuigen."
+          detail="In hun eigen vertrouwde omgeving regelen klanten alles zelf — dat bindt. Een goed getimede mail haalt stille klanten terug. En tevreden klanten laten reviews achter die jou hoger in Google zetten. Zo levert elke klant er weer een nieuwe op."
+          features={[
+            "Klantenportaal: een vertrouwde plek die bindt",
+            "E-mailmarketing haalt klanten automatisch terug",
+            "Reviews op Google, Facebook & Trustpilot",
+            "Beter gevonden → meer klanten → meer reviews",
+          ]}
+          visual={<LoyaltyVisual />}
+        />
 
-      {/* DOEL 4 · rust & overzicht — integratie + boekhouding + app */}
-      <Moment flip
-        eyebrow="Alles in één"
-        glow="56,189,248" eyebrowClass="text-amber-300" check="#34d399"
-        title={<>En alles werkt<br />als één geheel.</>}
-        line="Je boekhouding, je agenda, je klanten en je verkopen — verbonden in één systeem, op elk apparaat."
-        detail="Geen losse tools waar je steeds hetzelfde in tikt. Je boekhouding ziet je facturen, je agenda synchroniseert zodat niemand dubbel boekt, en alles staat als app op je telefoon. Eén overzicht, samengesteld met de functies die jóuw bedrijf nodig heeft."
-        features={[
-          "Koppeling met je boekhouding & bestaande tools",
-          "Agenda synchroniseert — nooit meer dubbel geboekt",
-          "Als app op telefoon, tablet én computer",
-          "Eén systeem, samengesteld rond jouw bedrijf",
-        ]}
-        visual={<SystemVisual />}
-      />
+        {/* DOEL 4 · rust & overzicht — integratie + boekhouding + app */}
+        <Moment grid
+          eyebrow="Alles in één"
+          glow="56,189,248" eyebrowClass="text-amber-300" check="#34d399"
+          title={<>En alles werkt<br />als één geheel.</>}
+          line="Je boekhouding, je agenda, je klanten en je verkopen — verbonden in één systeem, op elk apparaat."
+          detail="Geen losse tools waar je steeds hetzelfde in tikt. Je boekhouding ziet je facturen, je agenda synchroniseert zodat niemand dubbel boekt, en alles staat als app op je telefoon. Eén overzicht, samengesteld met de functies die jóuw bedrijf nodig heeft."
+          features={[
+            "Koppeling met je boekhouding & bestaande tools",
+            "Agenda synchroniseert — nooit meer dubbel geboekt",
+            "Als app op telefoon, tablet én computer",
+            "Eén systeem, samengesteld rond jouw bedrijf",
+          ]}
+          visual={<SystemVisual />}
+        />
+      </div>
 
       <Statement minH="min-h-[82vh]" sub="Terwijl jij doet waar je goed in bent."
         detail="Eén website die nieuwe klanten wint, verkoopt, je klanten vasthoudt en je papierwerk overneemt — samengesteld met precies de functies die jóuw bedrijf nodig heeft. Vandaag, en wat je morgen ook nodig hebt."

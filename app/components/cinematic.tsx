@@ -89,7 +89,11 @@ export function Moment({
           <div>
             <p className={`font-semibold text-xs uppercase tracking-[0.2em] mb-3 ${eyebrowClass}`}>{eyebrow}</p>
             <h3 className="text-2xl sm:text-3xl font-black text-amber-300 leading-[1.08] tracking-tight mb-3">{title}</h3>
-            <p className="text-base text-amber-300/90 leading-relaxed">{line}</p>
+            <p className="text-base text-amber-300/90 leading-relaxed">
+              {line.split(/(?<=\.)\s+/).map((sentence, i) => (
+                <span key={i} className="block">{sentence}</span>
+              ))}
+            </p>
           </div>
         </div>
       </Reveal>

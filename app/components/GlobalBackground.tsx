@@ -15,24 +15,24 @@ function FlowLines() {
     const tick = () => {
       // Lissajous motion — irrational frequency ratios → never exactly repeats
       // Layer 1: slow, wide, all-directional
-      const dx1 = Math.sin(t)          * 230 + Math.sin(t * 0.41) * 80;
-      const dy1 = Math.cos(t * 0.63)   * 190 + Math.cos(t * 1.17) * 55;
-      const s1  = 75 + Math.sin(t * 0.77) * 20;
+      const dx1 = Math.sin(t)          * 180 + Math.sin(t * 0.41) * 60;
+      const dy1 = Math.cos(t * 0.63)   * 150 + Math.cos(t * 1.17) * 40;
+      const s1  = 65 + Math.sin(t * 0.77) * 15;
 
       // Layer 2: different frequencies + phase offset
-      const dx2 = Math.cos(t * 0.79)   * 165 + Math.sin(t * 1.31) * 55;
-      const dy2 = Math.sin(t * 1.07)   * 140 + Math.cos(t * 0.53) * 65;
-      const s2  = 55 + Math.cos(t * 0.61) * 18;
+      const dx2 = Math.cos(t * 0.79)   * 130 + Math.sin(t * 1.31) * 40;
+      const dy2 = Math.sin(t * 1.07)   * 110 + Math.cos(t * 0.53) * 50;
+      const s2  = 48 + Math.cos(t * 0.61) * 12;
 
-      off1.current?.setAttribute("dx",    String(dx1 | 0));
-      off1.current?.setAttribute("dy",    String(dy1 | 0));
-      disp1.current?.setAttribute("scale", String(s1  | 0));
+      off1.current?.setAttribute("dx",    dx1.toFixed(3));
+      off1.current?.setAttribute("dy",    dy1.toFixed(3));
+      disp1.current?.setAttribute("scale", s1.toFixed(3));
 
-      off2.current?.setAttribute("dx",    String(dx2 | 0));
-      off2.current?.setAttribute("dy",    String(dy2 | 0));
-      disp2.current?.setAttribute("scale", String(s2  | 0));
+      off2.current?.setAttribute("dx",    dx2.toFixed(3));
+      off2.current?.setAttribute("dy",    dy2.toFixed(3));
+      disp2.current?.setAttribute("scale", s2.toFixed(3));
 
-      t += 0.003; // very slow — one full cycle ≈ 35 minutes
+      t += 0.0018; // very slow — smoother, one full cycle ≈ 1 hour
       raf = requestAnimationFrame(tick);
     };
 

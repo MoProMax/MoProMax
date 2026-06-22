@@ -1,7 +1,6 @@
 "use client";
 
-import { GlassCard, Moment, Statement } from "./cinematic";
-import BookCallButton from "./BookCallButton";
+import { GlassCard, Moment } from "./cinematic";
 
 const ROSE = "text-amber-300";
 
@@ -193,12 +192,6 @@ export default function Problem() {
           visual={<ChaosVisual />}
         />
       </div>
-
-      <Statement minH="min-h-[70vh]" eyebrowClass={ROSE}
-        sub="Daarom bestaat Mo Pro Max."
-        cta={<BookCallButton size="lg" label="Plan een gratis gesprek" />}>
-        Het kan <span className="text-amber-300">anders.</span>
-      </Statement>
 
     </section>
   );

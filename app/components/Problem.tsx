@@ -154,53 +154,49 @@ export default function Problem() {
         Je bent goed in je vak.<br /><span className="text-amber-300">Alleen weet niemand het.</span>
       </Statement>
 
-      <Moment compact eyebrowClass={ROSE} glow="251,113,133"
-        eyebrow="Vindbaarheid"
-        title={<>Google vindt<br />je niet.</>}
-        line="Elke dag zonder website is een dag dat jouw klanten bij iemand anders landen. Niet omdat die beter is — maar omdat die gevonden werd."
-        detail="Acht op de tien mensen zoeken eerst online voordat ze ergens binnenstappen. Sta je er niet, dan kiest de klant simpelweg de eerste die hij wél vindt — ook al ben jij tien keer beter in je vak."
-        visual={<SearchVisual />}
-      />
+      <div className="max-w-[1600px] mx-auto w-full px-6 py-12 grid md:grid-cols-2 gap-x-12 gap-y-10 items-stretch">
+        <Moment grid eyebrowClass={ROSE} glow="251,113,133"
+          eyebrow="Vindbaarheid"
+          title={<>Google vindt<br />je niet.</>}
+          line="Elke dag zonder website is een dag dat jouw klanten bij iemand anders landen. Niet omdat die beter is — maar omdat die gevonden werd."
+          visual={<SearchVisual />}
+        />
 
-      <Moment compact flip eyebrowClass={ROSE} glow="251,113,133"
-        eyebrow="Gemiste klanten"
-        title={<>Je verliest klanten<br />zonder het te weten.</>}
-        line="Je krijgt nooit een telefoontje van iemand die jouw concurrent heeft gevonden. Dat is de stille prijs van niet online zijn."
-        detail="Het pijnlijkste aan gemiste klanten is dat je ze nooit ziet. Geen gemiste oproep, geen leeg mailtje — alleen omzet die stilletjes ergens anders heen gaat. Maand na maand, zonder dat je het doorhebt."
-        visual={<LostVisual />}
-      />
+        <Moment grid eyebrowClass={ROSE} glow="251,113,133"
+          eyebrow="Gemiste klanten"
+          title={<>Je verliest klanten<br />zonder het te weten.</>}
+          line="Je krijgt nooit een telefoontje van iemand die jouw concurrent heeft gevonden. Dat is de stille prijs van niet online zijn."
+          visual={<LostVisual />}
+        />
 
-      <Moment compact eyebrowClass={ROSE} glow="251,113,133"
-        eyebrow="Standaard bureaus"
-        title={<>Veel beloven,<br />een template leveren.</>}
-        line="Logo erin. 'Welkom op onze website' in de header. Factuur buiten. Je betaalde duizenden euro's voor iets dat van iedereen had kunnen zijn."
-        detail="Je betaalt voor maatwerk en krijgt een sjabloon waar alleen je naam in geplakt is. Geen verhaal, geen ziel, niets dat laat zien waarom jij anders bent. En zodra de factuur betaald is, hoor je niets meer."
-        visual={<TemplateVisual />}
-      />
+        <Moment grid eyebrowClass={ROSE} glow="251,113,133"
+          eyebrow="Standaard bureaus"
+          title={<>Veel beloven,<br />een template leveren.</>}
+          line="Logo erin. 'Welkom op onze website' in de header. Factuur buiten. Je betaalde duizenden euro's voor iets dat van iedereen had kunnen zijn."
+          visual={<TemplateVisual />}
+        />
 
-      <Moment compact flip eyebrowClass={ROSE} glow="251,113,133"
-        eyebrow="Eindeloos wachten"
-        title={<>Maanden wachten op<br />iets dat nooit af voelt.</>}
-        line="Webdesignbureaus doen er gemiddeld 6 tot 12 weken over — en communiceren amper. Jouw website hoort er in 48 uur te staan, niet 48 dagen."
-        detail="Eindeloze feedbackrondes, trage reacties, en een opleverdatum die steeds opschuift. Ondertussen staat jouw bedrijf nog altijd niet online, en lopen de klanten door naar iemand die er wél staat."
-        visual={<WaitingVisual />}
-      />
+        <Moment grid eyebrowClass={ROSE} glow="251,113,133"
+          eyebrow="Eindeloos wachten"
+          title={<>Maanden wachten op<br />iets dat nooit af voelt.</>}
+          line="Webdesignbureaus doen er gemiddeld 6 tot 12 weken over — en communiceren amper. Jouw website hoort er in 48 uur te staan, niet 48 dagen."
+          visual={<WaitingVisual />}
+        />
 
-      <Moment compact eyebrowClass={ROSE} glow="251,113,133"
-        eyebrow="Geen resultaat"
-        title={<>Hoge rekening,<br />weinig resultaat.</>}
-        line="Een mooie website die niemand vindt is een dure folder. Een website hoort gevonden te worden — en bezoekers om te zetten in klanten."
-        detail="Mooi is niet genoeg. Een website die niet gevonden wordt en bezoekers niet overtuigt, is duur behang. Het gaat om wat 'ie oplevert — telefoontjes, boekingen, klanten — niet om hoeveel 'ie kostte."
-        visual={<FlatlineVisual />}
-      />
+        <Moment grid eyebrowClass={ROSE} glow="251,113,133"
+          eyebrow="Geen resultaat"
+          title={<>Hoge rekening,<br />weinig resultaat.</>}
+          line="Een mooie website die niemand vindt is een dure folder. Een website hoort gevonden te worden — en bezoekers om te zetten in klanten."
+          visual={<FlatlineVisual />}
+        />
 
-      <Moment compact flip eyebrowClass={ROSE} glow="251,113,133"
-        eyebrow="Chaos"
-        title={<>Afspraken bijhouden<br />is een bijbaantje.</>}
-        line="Post-its, WhatsApp-berichten, notities op je telefoon. Eén centraal systeem — bereikbaar op elk apparaat — hoort dit allemaal op te lossen."
-        detail="Een afspraak hier, een belletje daar, een berichtje dat je vergeet terug te sturen. Voor je het weet ben je meer tijd kwijt aan het bijhouden van je agenda dan aan je échte werk — en glipt er af en toe eentje doorheen."
-        visual={<ChaosVisual />}
-      />
+        <Moment grid eyebrowClass={ROSE} glow="251,113,133"
+          eyebrow="Chaos"
+          title={<>Afspraken bijhouden<br />is een bijbaantje.</>}
+          line="Post-its, WhatsApp-berichten, notities op je telefoon. Eén centraal systeem — bereikbaar op elk apparaat — hoort dit allemaal op te lossen."
+          visual={<ChaosVisual />}
+        />
+      </div>
 
       <Statement minH="min-h-[70vh]" eyebrowClass={ROSE}
         sub="Daarom bestaat Mo Pro Max."

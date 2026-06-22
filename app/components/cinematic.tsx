@@ -55,7 +55,7 @@ export function GlassCard({ children, className = "" }: { children: ReactNode; c
 
 /* ── One cinematic moment: headline + line on one side, interface on the other ── */
 export function Moment({
-  eyebrow, title, line, detail, visual, features, flip = false, compact = false, eyebrowClass = "text-amber-300", glow = "251,191,36", check = "#34d399",
+  eyebrow, title, line, detail, visual, features, flip = false, compact = false, grid = false, eyebrowClass = "text-amber-300", glow = "251,191,36", check = "#34d399",
 }: {
   eyebrow: string;
   title: ReactNode;
@@ -65,10 +65,37 @@ export function Moment({
   features?: string[];  // desktop-only checklist
   flip?: boolean;
   compact?: boolean;
+  grid?: boolean;       // compact card variant for 2-up grid layouts (visual on top, text below)
   eyebrowClass?: string;
   glow?: string;
   check?: string;
 }) {
+  /* ── grid card variant: stacked vertically so two fit per row ── */
+  if (grid) {
+    return (
+      <Reveal className="h-full">
+        <div className="h-full flex flex-col gap-6 py-6">
+          <div className="relative flex justify-center items-center">
+            <div
+              className="absolute rounded-full pointer-events-none"
+              style={{
+                width: "100%", height: "100%",
+                background: `radial-gradient(circle at center, rgba(${glow},0.18) 0%, rgba(${glow},0.05) 40%, transparent 70%)`,
+                filter: "blur(8px)",
+              }}
+            />
+            <div className="relative w-full flex justify-center [&>*]:w-full [&>*]:max-w-sm">{visual}</div>
+          </div>
+          <div>
+            <p className={`font-semibold text-xs uppercase tracking-[0.2em] mb-3 ${eyebrowClass}`}>{eyebrow}</p>
+            <h3 className="text-2xl sm:text-3xl font-black text-amber-300 leading-[1.08] tracking-tight mb-3">{title}</h3>
+            <p className="text-base text-amber-300/90 leading-relaxed">{line}</p>
+          </div>
+        </div>
+      </Reveal>
+    );
+  }
+
   return (
     <div className={`${compact ? "min-h-[70vh]" : "min-h-[84vh]"} flex items-center px-6 py-12`}>
       <div className={`max-w-[1600px] mx-auto w-full grid md:grid-cols-2 gap-10 md:gap-16 items-center ${flip ? "md:[direction:rtl]" : ""}`}>

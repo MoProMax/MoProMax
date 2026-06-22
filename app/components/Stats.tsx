@@ -61,10 +61,8 @@ function Ticker({ from, to, unit, finalValue, stepSize = 1, msPerStep = 80, dela
 
 export default function Stats() {
   return (
-    <section className="py-20 px-6 relative overflow-hidden">
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/[0.06] to-transparent" />
-      <div className="max-w-[1600px] mx-auto">
+    <section className="min-h-screen flex flex-col items-center justify-center gap-16 px-6 py-20 relative overflow-hidden text-center">
+      <div className="max-w-[1600px] mx-auto w-full">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-4">
           <FadeIn delay={0}><div className="text-center">
             <p className="text-4xl sm:text-5xl font-black bg-gradient-to-br from-white to-amber-300 bg-clip-text text-transparent mb-2 leading-none tabular-nums">
@@ -96,6 +94,18 @@ export default function Stats() {
           </div></FadeIn>
         </div>
       </div>
+
+      <FadeIn delay={0.2}>
+        <div className="max-w-4xl mx-auto">
+          <p className="font-semibold text-sm uppercase tracking-[0.25em] mb-8 text-amber-300">Herken je dit?</p>
+          <h2 className="text-4xl sm:text-6xl lg:text-7xl font-black text-amber-300 leading-[1.05] tracking-tight">
+            Je bent goed in je vak.<br /><span className="text-amber-300">Alleen weet niemand het.</span>
+          </h2>
+          <p className="text-amber-300/90 text-lg sm:text-xl mt-8 max-w-xl mx-auto leading-relaxed">
+            Je doet het goed. Maar online is dat nog niet te zien — en dat kost je elke dag klanten.
+          </p>
+        </div>
+      </FadeIn>
     </section>
   );
 }

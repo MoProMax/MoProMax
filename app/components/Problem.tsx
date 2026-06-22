@@ -150,10 +150,6 @@ export default function Problem() {
   return (
     <section className="relative overflow-hidden">
 
-      <Statement eyebrowClass={ROSE} eyebrow="Herken je dit?" sub="Je doet het goed. Maar online is dat nog niet te zien — en dat kost je elke dag klanten.">
-        Je bent goed in je vak.<br /><span className="text-amber-300">Alleen weet niemand het.</span>
-      </Statement>
-
       <div className="max-w-[1600px] mx-auto w-full px-6 py-12 grid md:grid-cols-2 gap-x-12 gap-y-10 items-stretch">
         <Moment grid eyebrowClass={ROSE} glow="251,113,133"
           eyebrow="Vindbaarheid"

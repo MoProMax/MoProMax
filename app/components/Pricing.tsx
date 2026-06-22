@@ -1,7 +1,9 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { useLang } from "@/app/context/LanguageContext";
 import LiquidCard from "./LiquidCard";
+import { getPricingConfig, PricingConfig } from "@/app/lib/firestore";
 
 const Check = () => (
   <svg className="w-6 h-6 mx-auto" viewBox="0 0 24 24" fill="none"
@@ -14,7 +16,15 @@ const Dash = () => <span className="block w-4 h-px bg-white/10 mx-auto" />;
 
 export default function Pricing() {
   const { t } = useLang();
-  const { tiers, features, headline, subline, cta, ctaCustom, popular, maintenance } = t.pricing;
+  const [config, setConfig] = useState<PricingConfig | null>(null);
+
+  useEffect(() => {
+    getPricingConfig().then(setConfig).catch(() => {});
+  }, []);
+
+  // Firestore config overrides the built-in translation when present
+  const p = config ?? t.pricing;
+  const { tiers, features, headline, subline, cta, ctaCustom, popular, maintenance } = p;
 
   return (
     <section id="pricing" className="py-24 px-6 relative overflow-hidden">
@@ -76,7 +86,7 @@ export default function Pricing() {
                   <td className="px-5 py-3.5 text-amber-300 text-base">{feature}</td>
                   {tiers.map((tier) => (
                     <td key={tier.name} className={`py-3.5 text-center ${tier.highlight ? "bg-amber-600/[0.05]" : ""}`}>
-                      {tier.included[fi] ? <Check /> : <Dash />}
+                      {(tier.included[fi] ?? false) ? <Check /> : <Dash />}
                     </td>
                   ))}
                 </tr>

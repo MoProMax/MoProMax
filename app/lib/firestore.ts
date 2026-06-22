@@ -66,6 +66,25 @@ export interface SiteSettings {
   portfolioVisible: boolean;   // master switch for the whole Portfolio section on the public site
 }
 
+export interface PricingTier {
+  name: string;
+  price: string;
+  highlight: boolean;     // "most popular" badge + accent styling
+  isCustom: boolean;      // custom/quote tier (different CTA + subtext)
+  included: boolean[];    // one boolean per feature, same order as PricingConfig.features
+}
+
+export interface PricingConfig {
+  headline: string;
+  subline: string;
+  cta: string;
+  ctaCustom: string;
+  popular: string;
+  maintenance: string;
+  features: string[];
+  tiers: PricingTier[];
+}
+
 // ─── Contact messages ─────────────────────────────────────────────────────────
 
 export async function saveContactMessage(data: Omit<ContactMessage, "id" | "createdAt" | "read" | "replied">) {
@@ -168,4 +187,15 @@ export async function getSiteSettings(): Promise<SiteSettings> {
 
 export async function setPortfolioVisible(visible: boolean) {
   return setDoc(doc(db, "settings", "site"), { portfolioVisible: visible }, { merge: true });
+}
+
+// ─── Pricing ──────────────────────────────────────────────────────────────────
+
+export async function getPricingConfig(): Promise<PricingConfig | null> {
+  const snap = await getDoc(doc(db, "settings", "pricing"));
+  return snap.exists() ? (snap.data() as PricingConfig) : null;
+}
+
+export async function savePricingConfig(config: PricingConfig) {
+  return setDoc(doc(db, "settings", "pricing"), config);
 }

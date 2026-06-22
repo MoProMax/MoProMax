@@ -117,51 +117,53 @@ export default function Services() {
         Alles wat je nodig hebt.<br /><span className="text-amber-300">Niets wat je niet nodig hebt.</span>
       </Statement>
 
-      <Moment
-        eyebrow="Branding & Huisstijl"
-        glow="217,70,239" eyebrowClass="text-amber-300" check="#34d399"
-        title={<>Een merk dat<br />mensen onthouden.</>}
-        line="Voor we ook maar iets ontwerpen, leren we wie jij bent en wie jouw klanten zijn. Het resultaat: een identiteit die onmiskenbaar van jou is."
-        detail="Je merk is meer dan een logo — het is de eerste indruk, het gevoel dat blijft hangen, de reden dat iemand jóu onthoudt tussen tien anderen. Dat gevoel bouwen we op, van kleur tot toon."
-        features={["Uniek logo op maat", "Kleurenpalet & typografie", "Merk stijlgids", "Social media kit (profiel, banners, post- & story-templates)", "Originele teksten — geschreven in jouw stem"]}
-        visual={<BrandKitVisual />}
-      />
+      <div className="max-w-[1600px] mx-auto w-full px-6 py-12 grid md:grid-cols-2 gap-x-12 gap-y-10 items-stretch">
+        <Moment grid
+          eyebrow="Branding & Huisstijl"
+          glow="217,70,239" eyebrowClass="text-amber-300" check="#34d399"
+          title={<>Een merk dat<br />mensen onthouden.</>}
+          line="Voor we ook maar iets ontwerpen, leren we wie jij bent en wie jouw klanten zijn. Het resultaat: een identiteit die onmiskenbaar van jou is."
+          detail="Je merk is meer dan een logo — het is de eerste indruk, het gevoel dat blijft hangen, de reden dat iemand jóu onthoudt tussen tien anderen. Dat gevoel bouwen we op, van kleur tot toon."
+          features={["Uniek logo op maat", "Kleurenpalet & typografie", "Merk stijlgids", "Social media kit (profiel, banners, post- & story-templates)", "Originele teksten — geschreven in jouw stem"]}
+          visual={<BrandKitVisual />}
+        />
 
-      <Moment flip
-        eyebrow="Website Ontwerp & Bouw"
-        glow="251,191,36" eyebrowClass="text-amber-300"
-        title={<>100% op maat.<br />Geen template.</>}
-        line="Geen shortcuts. Een website die jouw verhaal vertelt, op elk apparaat werkt en bezoekers een reden geeft om contact op te nemen."
-        detail="Elke pixel heeft een doel. Snel ladend, helder, en gebouwd om bezoekers van 'interessant' naar 'ik neem contact op' te brengen — op de telefoon net zo goed als op de laptop."
-        features={["100% op maat ontwerp", "Mobiel-first & supersnel", "Originele websiteteksten voor jou geschreven", "Contactformulier + Google Maps", "2 maanden support inbegrepen"]}
-        visual={<DeviceVisual />}
-      />
+        <Moment grid
+          eyebrow="Website Ontwerp & Bouw"
+          glow="251,191,36" eyebrowClass="text-amber-300"
+          title={<>100% op maat.<br />Geen template.</>}
+          line="Geen shortcuts. Een website die jouw verhaal vertelt, op elk apparaat werkt en bezoekers een reden geeft om contact op te nemen."
+          detail="Elke pixel heeft een doel. Snel ladend, helder, en gebouwd om bezoekers van 'interessant' naar 'ik neem contact op' te brengen — op de telefoon net zo goed als op de laptop."
+          features={["100% op maat ontwerp", "Mobiel-first & supersnel", "Originele websiteteksten voor jou geschreven", "Contactformulier + Google Maps", "2 maanden support inbegrepen"]}
+          visual={<DeviceVisual />}
+        />
 
-      <Moment
-        eyebrow="Techniek & Functionaliteit"
-        glow="52,211,153" eyebrowClass="text-amber-300"
-        title={<>Alle techniek die je<br />bedrijf nodig heeft.</>}
-        line="Een boekingssysteem, een webshop, een klantenportaal, een chatbot — wat jouw bedrijf ook nodig heeft, wij bouwen het er naadloos in."
-        detail="We leveren niet zomaar een website, maar elke technische functie die jou werk uit handen neemt en klanten oplevert. Begin met wat je nú nodig hebt en voeg later toe wat je bedrijf laat groeien. Eén systeem, helemaal van jou."
-        features={[
-          "Online boekingssysteem & agenda",
-          "Webshop met iDEAL, creditcard & Apple Pay",
-          "Klantenportaal, chatbot & live chat",
-          "E-mailmarketing & automatische reviews",
-          "Koppeling met je boekhouding & bestaande tools",
-        ]}
-        visual={<BookingVisual />}
-      />
+        <Moment grid
+          eyebrow="Techniek & Functionaliteit"
+          glow="52,211,153" eyebrowClass="text-amber-300"
+          title={<>Alle techniek die je<br />bedrijf nodig heeft.</>}
+          line="Een boekingssysteem, een webshop, een klantenportaal, een chatbot — wat jouw bedrijf ook nodig heeft, wij bouwen het er naadloos in."
+          detail="We leveren niet zomaar een website, maar elke technische functie die jou werk uit handen neemt en klanten oplevert. Begin met wat je nú nodig hebt en voeg later toe wat je bedrijf laat groeien. Eén systeem, helemaal van jou."
+          features={[
+            "Online boekingssysteem & agenda",
+            "Webshop met iDEAL, creditcard & Apple Pay",
+            "Klantenportaal, chatbot & live chat",
+            "E-mailmarketing & automatische reviews",
+            "Koppeling met je boekhouding & bestaande tools",
+          ]}
+          visual={<BookingVisual />}
+        />
 
-      <Moment flip
-        eyebrow="SEO · Vindbaarheid"
-        glow="56,189,248" eyebrowClass="text-amber-300" check="#34d399"
-        title={<>Bovenaan staan<br />als het telt.</>}
-        line="Wat heeft een geweldige website voor zin als niemand je vindt? We zorgen dat je zichtbaar bent als jouw klanten zoeken — op Google, op Maps, in jouw regio."
-        detail="Vindbaar zijn is geen toeval. We zorgen dat je verschijnt op het moment dat iemand in jouw buurt precies zoekt naar wat jij doet — en dat je bóven de concurrent staat."
-        features={["Google Business instellen & optimaliseren", "Zichtbaarheid op Google Maps", "Hogere zoekposities", "Review-strategie", "3 maanden rapportage"]}
-        visual={<RankingVisual />}
-      />
+        <Moment grid
+          eyebrow="SEO · Vindbaarheid"
+          glow="56,189,248" eyebrowClass="text-amber-300" check="#34d399"
+          title={<>Bovenaan staan<br />als het telt.</>}
+          line="Wat heeft een geweldige website voor zin als niemand je vindt? We zorgen dat je zichtbaar bent als jouw klanten zoeken — op Google, op Maps, in jouw regio."
+          detail="Vindbaar zijn is geen toeval. We zorgen dat je verschijnt op het moment dat iemand in jouw buurt precies zoekt naar wat jij doet — en dat je bóven de concurrent staat."
+          features={["Google Business instellen & optimaliseren", "Zichtbaarheid op Google Maps", "Hogere zoekposities", "Review-strategie", "3 maanden rapportage"]}
+          visual={<RankingVisual />}
+        />
+      </div>
 
     </section>
   );

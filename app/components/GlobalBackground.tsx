@@ -2,6 +2,13 @@
 
 import { useEffect, useRef } from "react";
 
+const VBW = 1440;
+const VBH = 960;
+const X0 = -120;
+const X1 = 1560;
+const STEP = 8;          // sample spacing in viewbox px — smaller = smoother
+const SPEED = 0.45;      // global motion rate (rad/s base)
+
 const LINES = [
   // primary — purple-white
   ...Array.from({ length: 22 }, (_, i) => ({
@@ -31,81 +38,90 @@ const LINES = [
   })),
 ];
 
-const PTS = 48;   // control-point density — higher = smoother curves
-const X0  = -120;
-const X1  = 1560; // wider than viewBox to avoid edge clipping
-
-function smoothPath(pts: [number, number][]): string {
-  let d = `M${pts[0][0].toFixed(2)},${pts[0][1].toFixed(2)}`;
-  for (let i = 1; i < pts.length; i++) {
-    const p0 = pts[Math.max(0, i - 2)];
-    const p1 = pts[i - 1];
-    const p2 = pts[i];
-    const p3 = pts[Math.min(pts.length - 1, i + 1)];
-    // Catmull-Rom → cubic Bezier
-    const cp1x = p1[0] + (p2[0] - p0[0]) / 6;
-    const cp1y = p1[1] + (p2[1] - p0[1]) / 6;
-    const cp2x = p2[0] - (p3[0] - p1[0]) / 6;
-    const cp2y = p2[1] - (p3[1] - p1[1]) / 6;
-    d += `C${cp1x.toFixed(2)},${cp1y.toFixed(2)},${cp2x.toFixed(2)},${cp2y.toFixed(2)},${p2[0].toFixed(2)},${p2[1].toFixed(2)}`;
-  }
-  return d;
-}
-
 function FlowLines() {
-  const svgRef = useRef<SVGSVGElement>(null);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
-    const svg = svgRef.current;
-    if (!svg) return;
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
 
-    const pathEls = LINES.map((cfg) => {
-      const el = document.createElementNS("http://www.w3.org/2000/svg", "path");
-      el.setAttribute("fill", "none");
-      el.setAttribute("stroke", `rgba(${cfg.rgb},${cfg.opacity})`);
-      el.setAttribute("stroke-width", String(cfg.width));
-      el.setAttribute("stroke-linecap", "round");
-      svg.appendChild(el);
-      return el;
-    });
+    let width = 0;
+    let height = 0;
+    let dpr = 1;
+    let scale = 1;
+    let offX = 0;
+    let offY = 0;
 
-    const step = (X1 - X0) / (PTS - 1);
-    let t = 0;
+    const resize = () => {
+      dpr = Math.min(window.devicePixelRatio || 1, 2);
+      width = window.innerWidth;
+      height = window.innerHeight;
+      canvas.width = Math.round(width * dpr);
+      canvas.height = Math.round(height * dpr);
+      canvas.style.width = width + "px";
+      canvas.style.height = height + "px";
+      // "slice" / cover mapping of the 1440×960 design space into the viewport
+      scale = Math.max(width / VBW, height / VBH);
+      offX = (width - VBW * scale) / 2;
+      offY = (height - VBH * scale) / 2;
+    };
+    resize();
+    window.addEventListener("resize", resize);
+
     let raf: number;
+    let start: number | null = null;
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    const tick = () => {
-      LINES.forEach((cfg, li) => {
-        const pts: [number, number][] = [];
-        for (let p = 0; p < PTS; p++) {
-          const x = X0 + p * step;
+    const draw = (t: number) => {
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      ctx.clearRect(0, 0, width, height);
+      ctx.translate(offX, offY);
+      ctx.scale(scale, scale);
+      ctx.lineCap = "round";
+      ctx.lineJoin = "round";
+
+      const T = t * SPEED;
+      for (let li = 0; li < LINES.length; li++) {
+        const cfg = LINES[li];
+        ctx.beginPath();
+        for (let x = X0; x <= X1; x += STEP) {
           const y =
             cfg.baseY +
-            Math.sin(x * cfg.freq1 + t * cfg.speed1) * cfg.amp1 +
-            Math.sin(x * cfg.freq2 + t * cfg.speed2 + li * 0.7) * cfg.amp2;
-          pts.push([x, y]);
+            Math.sin(x * cfg.freq1 + T * cfg.speed1) * cfg.amp1 +
+            Math.sin(x * cfg.freq2 + T * cfg.speed2 + li * 0.7) * cfg.amp2;
+          if (x === X0) ctx.moveTo(x, y);
+          else ctx.lineTo(x, y);
         }
-        pathEls[li].setAttribute("d", smoothPath(pts));
-      });
-      t += 0.007;
+        ctx.strokeStyle = `rgba(${cfg.rgb},${cfg.opacity})`;
+        ctx.lineWidth = cfg.width;
+        ctx.stroke();
+      }
+      // reset transform so clearRect next frame works in device space
+      ctx.setTransform(1, 0, 0, 1, 0, 0);
+    };
+
+    const tick = (now: number) => {
+      if (start === null) start = now;
+      // time-based: motion stays proportional even if frames drop → no jumps
+      draw((now - start) / 1000);
       raf = requestAnimationFrame(tick);
     };
 
-    raf = requestAnimationFrame(tick);
+    if (reduce) {
+      draw(0); // static frame, respect reduced-motion
+    } else {
+      raf = requestAnimationFrame(tick);
+    }
+
     return () => {
       cancelAnimationFrame(raf);
-      pathEls.forEach((el) => el.remove());
+      window.removeEventListener("resize", resize);
     };
   }, []);
 
-  return (
-    <svg
-      ref={svgRef}
-      className="absolute inset-0 w-full h-full"
-      xmlns="http://www.w3.org/2000/svg"
-      preserveAspectRatio="xMidYMid slice"
-      viewBox="0 0 1440 960"
-    />
-  );
+  return <canvas ref={canvasRef} className="absolute inset-0 w-full h-full" />;
 }
 
 export default function GlobalBackground() {

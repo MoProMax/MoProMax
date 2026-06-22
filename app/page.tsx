@@ -1,4 +1,3 @@
-import Navbar from "@/app/components/Navbar";
 import Hero from "@/app/components/Hero";
 import Stats from "@/app/components/Stats";
 import Problem from "@/app/components/Problem";
@@ -16,7 +15,6 @@ import FloatingCTA from "@/app/components/FloatingCTA";
 export default function Home() {
   return (
     <>
-      <Navbar />
       <main>
         <Hero />
         <Stats />

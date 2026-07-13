@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useLang } from "@/app/context/LanguageContext";
+import BookCallButton from "./BookCallButton";
 
 export default function FloatingCTA() {
   const { t } = useLang();
@@ -24,6 +25,19 @@ export default function FloatingCTA() {
 
   return (
     <>
+      {/* Sticky CTA rechtsboven — verschijnt zodra de hero uit beeld scrollt */}
+      <div
+        className="fixed top-5 right-5 z-50 hidden sm:block"
+        style={{
+          opacity: visible ? 1 : 0,
+          transform: visible ? "translateY(0)" : "translateY(-16px)",
+          transition: "opacity 0.3s ease, transform 0.4s cubic-bezier(0.34,1.56,0.64,1)",
+          pointerEvents: visible ? "auto" : "none",
+        }}
+      >
+        <BookCallButton size="sm" label={t.hero.cta} />
+      </div>
+
       <a
         href="https://wa.me/31600000000"
         target="_blank"

@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { useLang } from "@/app/context/LanguageContext";
 import BookCallButton from "./BookCallButton";
+import { WHATSAPP_URL } from "@/app/lib/contact";
 
 export default function FloatingCTA() {
   const { t } = useLang();
@@ -39,7 +40,7 @@ export default function FloatingCTA() {
       </div>
 
       <a
-        href="https://wa.me/31600000000"
+        href={WHATSAPP_URL}
         target="_blank"
         rel="noopener noreferrer"
         aria-label="WhatsApp"

@@ -46,32 +46,3 @@ body {
   to   { opacity: 1; transform: scale(1); }
 }
 
-/* Respect user reduced motion preference */
-@media (prefers-reduced-motion: reduce) {
-  * { animation: none !important; transition: none !important; }
-}
-
-/* Disable heavy backdrop/blur and reduce shadows on small screens */
-@media (max-width: 768px) {
-  .backdrop-blur-sm, .backdrop-blur, .backdrop-blur-md, .backdrop-blur-lg, .backdrop-blur-2xl {
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
-  }
-
-  .drop-shadow-[0_0_40px_rgba(147,51,234,0.5)] {
-    filter: none !important;
-    box-shadow: none !important;
-  }
-
-  section[role="hero"], .hero, .min-h-screen {
-    min-height: auto !important;
-  }
-}
-
-/* Make keyframes no-op when reduced-motion is requested */
-@media (prefers-reduced-motion: reduce) {
-  @keyframes hero-logo, @keyframes hero-fade-up, @keyframes hero-scale-x, @keyframes hero-fade, @keyframes hero-niche {
-    from { opacity: 1; transform: none; }
-    to { opacity: 1; transform: none; }
-  }
-}

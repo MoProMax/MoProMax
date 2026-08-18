@@ -22,12 +22,15 @@ export default function Footer() {
             />
             <p className="text-amber-300 text-sm">{t.footer.tagline}</p>
             
-          </div><p>INFO@MOPROMAX.COM</p><p>06-260 29 133</p>
+          </div>
+
           <nav className="flex flex-wrap items-center justify-center gap-6">
             {t.footer.links.map((label, i) => (
               <a key={label} href={linkHrefs[i]} className="text-amber-300 hover:text-amber-300 text-base font-medium transition-colors">{label}</a>
             ))}
           </nav>
+                    <p>INFO@MOPROMAX.COM</p>
+          <p>06-260 29 133</p>
         </div>
         <div className="border-t border-white/[0.05] pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-amber-300 text-sm">
           <p>© {year} Mo Pro Max. {t.footer.legal}</p>

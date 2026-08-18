@@ -83,7 +83,7 @@ export default function Stats() {
               <Ticker from={0} to={100} unit="%" stepSize={1} msPerStep={40} delay={200} />
             </p>
             <p className="text-amber-300 font-semibold text-base mb-1">Persoonlijke aanpak</p>
-            <p className="text-amber-300 text-sm">Geen templates, geen uitpoepen.</p>
+            <p className="text-amber-300 text-sm">Geen templates, maar orginaliteit.</p>
           </div></FadeIn>
           <FadeIn delay={0.3}><div className="text-center">
             <p className="text-4xl sm:text-5xl font-black bg-gradient-to-br from-white to-amber-300 bg-clip-text text-transparent mb-2 leading-none tabular-nums">

@@ -22,7 +22,7 @@ export default function Footer() {
             />
             <p className="text-amber-300 text-sm">{t.footer.tagline}</p>
             
-          </div><p>tes</p>
+          </div><p>INFO@MOPROMAX.COM</p><p>06-260 29 133</p>
           <nav className="flex flex-wrap items-center justify-center gap-6">
             {t.footer.links.map((label, i) => (
               <a key={label} href={linkHrefs[i]} className="text-amber-300 hover:text-amber-300 text-base font-medium transition-colors">{label}</a>

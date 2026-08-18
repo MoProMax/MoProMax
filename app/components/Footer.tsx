@@ -21,6 +21,7 @@ export default function Footer() {
               className="h-auto block"
             />
             <p className="text-amber-300 text-sm">{t.footer.tagline}</p>
+            <p>tes</p>
           </div>
           <nav className="flex flex-wrap items-center justify-center gap-6">
             {t.footer.links.map((label, i) => (

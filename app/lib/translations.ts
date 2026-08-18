@@ -217,7 +217,7 @@ export const translations = {
       subline:
         "We beginnen pas als we begrijpen wie jij bent, wie jouw klanten zijn en wat jou uniek maakt. Dan leveren we — snel, scherp en precies goed.",
       cta: "Plan een gratis gesprek",
-      ctaSub: "Vrijblijvend · 30 minuten · Reactie binnen 2 uur",
+      ctaSub: "",
       scroll: "Bekijk hoe het werkt",
       niches: ["Kappers", "Nagelsalons", "Coaches", "Rijscholen", "Aannemers", "Mobiel boekingssysteem & app"],
     },
@@ -227,7 +227,7 @@ export const translations = {
       cards: [
         {
           title: "Google vindt je niet",
-          body: "Elke dag zonder website is een dag dat jouw klanten bij iemand anders landen. Niet omdat die beter is — maar omdat die gevonden werd.",
+          body: "Elke dag zonder website is een dag dat jouw klanten bij iemand anders terechtkomen. Niet omdat ze beter zijn — maar omdat ze gevonden werden.",
         },
         {
           title: "Je verliest klanten zonder het te weten",
@@ -273,8 +273,8 @@ export const translations = {
             "100% op maat ontwerp",
             "Mobiel-first & snel",
             "Originele websiteteksten voor jou geschreven",
-            "Contactformulier + Google Maps",
-            "2 maanden support inbegrepen",
+            "Contactformulier en SEO",
+            "3 maanden support inbegrepen",
           ],
         },
         {
@@ -285,7 +285,7 @@ export const translations = {
         {
           title: "SEO (Search Engine Optimisation)",
           body: "Wat heeft een geweldige website voor zin als niemand je vindt? We zorgen dat je zichtbaar bent als jouw klanten zoeken — op Google, op Maps, in jouw regio.",
-          features: ["Google Business instellen & optimaliseren", "Zichtbaarheid op Google Maps", "Hogere zoekposities", "Review-strategie", "3 maanden rapportage"],
+          features: ["Google Business instellen & optimaliseren", "Zichtbaarheid op google en AI diensten", "Hogere zoekposities", "Review-strategie", "frequente rapportages"],
         },
       ],
     },
@@ -306,8 +306,8 @@ export const translations = {
         {
           number: "02",
           title: "Wij bouwen. Jij doet gewoon zaken.",
-          body: "Geen eindeloos heen-en-weer. Geen weken aan feedbackrondes. Wij leveren — jij keurt goed. Snel, soepel, klaar.",
-          guarantee: "Jouw website live binnen 48 uur",
+          body: "Niet eindeloos heen-en-weer. Geen weken aan feedbackrondes. Wij leveren — jij keurt en wij werken af. Snel, soepel, simpel.",
+          guarantee: "Jouw website is live binnen 48 uur",
         },
         {
           number: "03",

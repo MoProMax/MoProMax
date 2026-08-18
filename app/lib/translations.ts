@@ -11,7 +11,7 @@ export const translations = {
     },
     hero: {
       badge: "Online within 48 hours",
-      headline: "Your website. Live in 48 hours. Or your money back.",
+      headline: "",
       subline:
         "We don't start building until we understand who you are, who your customers are, and what makes you different. Then we deliver — fast, sharp, and exactly right.",
       cta: "Book a free call",
@@ -213,7 +213,7 @@ export const translations = {
     },
     hero: {
       badge: "Binnen 48 uur online",
-      headline: "Jouw website. Live in 48 uur. Of je geld terug.",
+      headline: "Building Your Future Together.",
       subline:
         "We beginnen pas als we begrijpen wie jij bent, wie jouw klanten zijn en wat jou uniek maakt. Dan leveren we — snel, scherp en precies goed.",
       cta: "Plan een gratis gesprek",

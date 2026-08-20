@@ -198,7 +198,7 @@ export const translations = {
       whatsapp: "Prefer WhatsApp?",
     },
     footer: {
-      tagline: "Mo Pro Max — Websites that work. People who stay.",
+      tagline: "BUILDING YOUR FUTURE TOGETHER",
       links: ["Services", "Our Work", "Packages", "About", "Contact"],
       legal: "All rights reserved.",
     },
@@ -402,7 +402,7 @@ export const translations = {
       whatsapp: "Liever WhatsApp?",
     },
     footer: {
-      tagline: "Mo Pro Max — Websites die werken. Mensen die blijven.",
+      tagline: "BUILDING YOUR FUTURE TOGETHER",
       links: ["Diensten", "Ons Werk", "Pakketten", "Over Ons", "Contact"],
       legal: "Alle rechten voorbehouden.",
     },

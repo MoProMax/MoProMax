@@ -20,8 +20,7 @@ export default function Footer() {
               height={84}
               className="h-auto block"
             />
-            <p className="text-amber-300 text-sm">{t.footer.tagline}</p>
-            
+            <p className="text-amber-300 text-sm font-semibold tracking-[0.15em]">{t.footer.tagline}</p>
           </div>
 
           <nav className="flex flex-wrap items-center justify-center gap-6">
